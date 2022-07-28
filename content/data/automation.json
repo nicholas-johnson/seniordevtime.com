@@ -1,0 +1,35 @@
+{
+  "title": "Web Automation",
+  "slug": "automation",
+  "img": "/images/sections/node.svg",
+  "courses": {
+    "course": {
+      "title": "The Web Automation Course",
+      "slug": "course",
+      "img": "/images/sections/node.svg",
+      "exercises": {
+        "gulp": {
+          "title": "Gulp",
+          "description": "Gulp is an automatic task runner. Let's see how it can save you hours"
+        },
+        "watch-and-reload": {
+          "title": "Watch and livereload",
+          "description": "Watching files for changes, and live reloading your browser."
+        },
+        "sass": {
+          "title": "SASS",
+          "description": "Generate CSS the modern way with SASS. We also take a glance at livereload and dip our toes into autoprefixer."
+        },
+        "jade": {
+          "title": "Jade",
+          "description": "Jade is a quick and stylish HTML5 precursor. Because no one should be forced to hand-code XML."
+        },
+        "yeoman": {
+          "title": "Yeoman",
+          "slug": "yeoman",
+          "description": "Yeoman is a code generator built for Node. Let's use it now to create a better express app."
+        }
+      }
+    }
+  }
+}

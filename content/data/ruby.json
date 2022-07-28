@@ -1,0 +1,277 @@
+{
+  "title": "Ruby",
+  "slug": "ruby",
+  "img": "/images/sections/ruby.svg",
+  "courses": {
+    "ruby-course": {
+      "title": "The Ruby Course",
+      "slug": "ruby-course",
+      "exercises": {
+        "intro": {
+          "title": "Intro to Ruby",
+          "slug": "intro",
+          "description": "Welcome to Ruby. Learn the language fundamentals, and how it differs from your current language of choice.",
+          "code": "https://www.dropbox.com/sh/y5pruqg4hew0sj1/AAB1qhj9fj5S30T58fbpD7xOa?dl=1"
+        },
+        "variables-and-constants": {
+          "title": "Variables and Constants",
+          "description": "Ruby takes a relaxed attitude to data storage. Variables and constants.",
+          "code": ""
+        },
+        "numbers": {
+          "title": "Integers and Floats",
+          "description": "Numbers are objects in Ruby and can be treated as such.",
+          "code": ""
+        },
+        "strings": {
+          "title": "Strings",
+          "description": "Ruby has an unusually rich string manipulation API.",
+          "code": ""
+        },
+        "functions": {
+          "title": "Functions",
+          "description": "Creating functions",
+          "code": "https://www.dropbox.com/sh/aowuqrx8uuifhuy/AAA9VXxVqFyj-WxzZcP2Go1Wa?dl=1"
+        },
+        "flow-control": {
+          "title": "Flow Control",
+          "slug": "flow-control",
+          "description": "Ruby loves it when you tell it what to do.",
+          "code": ""
+        },
+        "blocks": {
+          "title": "Blocks",
+          "description": "Blocks are inline functions. We use them everywhere in Ruby. Learn what they are and how they work.",
+          "code": "https://www.dropbox.com/sh/xmsk4ruijwoxqs0/AAAcxsR7e81oLMth6qoZV-Cja?dl=1"
+        },
+        "rspec": {
+          "title": "RSpec",
+          "description": "Testing is a big deal in Ruby. RSpec is your premier tool for the job.",
+          "code": ""
+        },
+        "arrays": {
+          "title": "Arrays",
+          "slug": "arrays",
+          "description": "We can accomplish many tasks using Array manipulation",
+          "code": ""
+        },
+        "hashes-and-symbols": {
+          "title": "Hashes and Symbols",
+          "slug": "hashes-and-symbols",
+          "description": "Symbols are lightweight placeholder strings. Learn what they are useful for.",
+          "code": "https://www.dropbox.com/sh/uufwxfjyeglrsyu/AABCFlpafYGU0KVHAL6fvG5Wa?dl=1"
+        },
+        "classes-and-objects": {
+          "title": "Classes and Objects",
+          "slug": "classes-and-objects",
+          "description": "Everything in Ruby is an object. Learn Object orientation.",
+          "code": "https://www.dropbox.com/sh/aowuqrx8uuifhuy/AAA9VXxVqFyj-WxzZcP2Go1Wa?dl=1"
+        },
+        "monkey-patching": {
+          "title": "Monkey Patching",
+          "slug": "monkey-patching",
+          "description": "All objects are open and can be modified and extended.",
+          "code": "https://www.dropbox.com/sh/7z4yatmjxatz4zh/AAAwRc7Et-0oGTJwG8ON1BRNa?dl=0"
+        },
+        "operator-overloading": {
+          "title": "Operator Overloading",
+          "slug": "operator-overloading",
+          "description": "Most language constructs in Ruby are in fact functions and can be overridden.",
+          "code": "https://www.dropbox.com/sh/eozxbcnov5bkc0c/AACsQ3VE6E5PVJB8T9zvKH4Pa?dl=1"
+        },
+        "inheritance": {
+          "title": "Inheritance",
+          "slug": "inheritance",
+          "description": "Inheritance allows a class to inherit values from it's parent. Ruby of course has it.",
+          "code": "https://www.dropbox.com/sh/aowuqrx8uuifhuy/AAA9VXxVqFyj-WxzZcP2Go1Wa?dl=1"
+        },
+        "static-methods": {
+          "title": "Static Methods",
+          "slug": "static-methods",
+          "description": "Ruby's simple object model doesn't support Static methods directly, instead we get Eigenclasses, which are better.",
+          "code": ""
+        },
+        "modules": {
+          "title": "Modules",
+          "slug": "modules",
+          "description": "Separate your code into sensible modules for code reuse and modularity.",
+          "code": "https://www.dropbox.com/sh/926cgqatg9e8mtd/AACqR3k7Wxko8ZmjTWCUmzzOa?dl=1"
+        },
+        "extend-and-include": {
+          "title": "Include vs Extend",
+          "slug": "extend-and-include",
+          "description": "When to extend modules, and when to include them",
+          "code": ""
+        },
+        "exceptions": {
+          "title": "Exception Handling",
+          "slug": "exceptions",
+          "description": "When things go wrong.",
+          "code": ""
+        },
+        "receiving-a-block": {
+          "title": "Writing Methods which Receive Blocks",
+          "slug": "receiving-a-block",
+          "description": "We can pass blocks to functions.",
+          "code": "https://www.dropbox.com/sh/llzd3m61b9a5l09/AABI4u_ZUj72XFWKrTI0Mw63a?dl=1"
+        },
+        // "introspection": {
+        //   "title": "Introspection",
+        //   "slug": "introspection",
+        //   "description": "Look inside running Ruby objects and find out what they do. The gateway to meta-programming.",
+        //   "code": "https://www.dropbox.com/sh/21rtf789g4urnnc/AAB38kpF58sBBXffCxao1GpYa?dl=1"
+        // },
+        "writing-a-gem": {
+          "title": "Writing a Gem",
+          "slug": "writing-a-gem",
+          "description": "We can ball our code up into a gem to make it easy to share.",
+          "code": ""
+        },
+        "ruby-send": {
+          "title": "Send",
+          "slug": "ruby-send",
+          "description": "Write code which writes code",
+          "code": "https://www.dropbox.com/sh/iihnynrc58lczcg/AACInjBrHAQmULwF4t58RepPa?dl=1"
+        },
+        "define-method": {
+          "title": "Define Method",
+          "slug": "define-method",
+          "description": "Define methods dynamically",
+          "code": "https://www.dropbox.com/sh/lv5v93lzswrbkel/AADm60j8NzM8Y4bqK6uq02k6a?dl=1"
+        },
+        "method-missing": {
+          "title": "Method Missing",
+          "slug": "method-missing",
+          "description": "Create adaptive objects by defining methods on the fly",
+          "code": "https://www.dropbox.com/sh/mpbnn5gak8fikgi/AACDwPqRrKPYDZVA_skFXCS4a?dl=1"
+        },
+        "instance-eval": {
+          "title": "Instance Eval",
+          "slug": "instance-eval",
+          "description": "Create a Domain Specific Language using instance eval.",
+          "code": "https://www.dropbox.com/sh/7iwxn2n477yfn5x/AAATcQm7XTytAIhHwU_LHTrMa?dl=1"
+        }
+        // "lifecycle-callbacks": {
+        //   "title": "Lifecycle Callbacks",
+        //   "slug": "lifecycle-callbacks",
+        //   "description": "Call functions automatically when objects come into existence.",
+        //   "code": "https://www.dropbox.com/sh/b3xyrwa52am8ey6/AADasLUiV_L0IL07ABD9SKmaa?dl=1"
+        // }
+      }
+    },
+    "rails-course": {
+      "title": "The Rails Course",
+      "slug": "rails-course",
+      "exercises": {
+        "hello-world": {
+          "title": "Hello World",
+          "slug": "hello-world",
+          "description": "Every project starts with a hello world",
+          "code": ""
+        },
+        "debugging": {
+          "title": "Debugging Rails",
+          "slug": "debugging",
+          "description": "When things go wrong",
+          "code": ""
+        },
+        "layouts-and-partials": {
+          "title": "Layouts and Partials",
+          "slug": "layouts-and-partials",
+          "description": "Breaking your views out into sensible pieces",
+          "code": ""
+        },
+        "params": {
+          "title": "The Params Hash",
+          "slug": "params",
+          "description": "Reading params from the URL",
+          "code": ""
+        },
+        "models": {
+          "title": "Models and Talking to the Database",
+          "slug": "models",
+          "description": "The M in MVC",
+          "code": ""
+        },
+        "scaffolding": {
+          "title": "Scaffolding and CRUD",
+          "slug": "scaffolding",
+          "description": "",
+          "code": "Doing a lot of boilerplate stuff very quickly."
+        },
+        "associations": {
+          "title": "Associations",
+          "slug": "associations",
+          "description": "",
+          "code": "Associations between models."
+        },
+        "sessions": {
+          "title": "The Session Hash",
+          "slug": "sessions",
+          "description": "Persisting session data has never been so much fun.",
+          "code": ""
+        },
+        "assets": {
+          "title": "Assets",
+          "slug": "assets",
+          "description": "",
+          "code": "The Asset Pipeline is a powerful thing"
+        },
+        // "helpers": {
+        //   "title": "Helpers",
+        //   "slug": "helpers",
+        //   "description": "",
+        //   "code": ""
+        // },
+        "rspec": {
+          "title": "Rspec Testing",
+          "slug": "rspec",
+          "description": "",
+          "code": ""
+        },
+        // "test-unit": {
+        //   "title": "Test::Unit Testing (optional)",
+        //   "slug": "test-unit",
+        //   "description": "",
+        //   "code": ""
+        // },
+        "concerns": {
+          "title": "Concerns",
+          "slug": "concerns",
+          "description": "",
+          "code": ""
+        },
+        "haml": {
+          "title": "Alternative Template Engines (Haml, Markdown, Slim)",
+          "slug": "haml",
+          "description": "",
+          "code": ""
+        },
+        "internationalisation": {
+          "title": "Internationalisation",
+          "slug": "internationalisation",
+          "description": "",
+          "code": ""
+        },
+        "integration": {
+          "title": "Integration",
+          "slug": "integration",
+          "description": "",
+          "code": ""
+        }
+        // "json": {
+        //   "title": "Building a JSON API",
+        //   "slug": "json",
+        //   "description": "",
+        //   "code": ""
+        // }
+        // "custom-generators": {
+        //   "title": "Custom generators",
+        //   "slug": "custom-generators",
+        //   "description": "",
+        //   "code": ""
+        // }
+      }
+    }
+  }
+}

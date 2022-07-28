@@ -1,0 +1,96 @@
+---
+title: "CSS Style Exercise"
+section: "webdev"
+exercise: "style-attributes"
+course: "course"
+layout: "exercise"
+---
+
+%article
+%section
+:markdown
+# Style attributes
+
+We define the look of our web page using CSS. The best way to apply styling to a page is using a separate CSS stylesheet, which defines all the rules for our site. We'll get to this shortly.
+
+We can however apply styles to individual elements on a page. Say we have a paragraph, like this:
+
+:ruby
+code = <<-CODE
+<p>
+Let's make it bigger and redder!
+</p>
+CODE
+=code(code, :html)
+
+:markdown
+
+We can make it bigger with a style attribute like so:
+
+:ruby
+code = <<-CODE
+<p style="font-size:30px">
+Let's make it bigger and redder!
+</p>
+CODE
+=code(code, :html)
+
+:markdown
+
+If we wish to apply some more rules we can do so by separating them with a semi-colon, like so:
+
+:ruby
+code = <<-CODE
+<p style="font-size:30px; color: red;">
+Let's make it bigger and redder!
+</p>
+CODE
+=code(code, :html)
+
+:markdown
+
+
+
+%section.exercise
+:markdown
+
+## Exercise - Style Tags
+
+Use HTML something like this. You can copy and paste this if you like:
+
+:ruby
+code = <<-CODE
+<!DOCTYPE html>
+<html>
+<head>
+<title></title>
+</head>
+<body>
+<h1>
+Style attributes are handy
+</h1>
+<p>
+In a pinch.
+<strong>
+But be careful not to overuse them!
+</strong>
+</p>
+</body>
+</html>
+CODE
+=code(code, :html)
+
+:markdown
+
+Refer to the CSS cheat-sheet here:
+
+%a{ href: '/css-cheatsheet' } CSS Cheat-sheet
+
+:markdown
+1. Make the h1 big and red.
+2. Make the paragraph blue.
+3. Add a background colour to the html element.
+4. For bonus points, add a background texture to the html element. You may wish to pick one from here <http://subtlepatterns.com/>)
+5. Add a 5 pixed dotted grey border around the body element.
+6. Set a width on the body of 500px.
+7. Center the page by setting margin:0 auto; on the body.

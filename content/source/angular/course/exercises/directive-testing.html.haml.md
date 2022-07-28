@@ -1,0 +1,16 @@
+
+  %section
+    :markdown
+      # Testing Directives with Karma
+  
+      We can unit test directives with Karma. We set up a DOM fragment that makes use of our directive, then compile it using Angular's $compile service.
+  
+      We can then check that Angular has made the changes we might expect.
+  
+  
+  %section.exercise
+    :markdown
+      ## Exercise - Test your directive
+  
+      Write a Karma test for your Flickr directive. You will need to test that
+  

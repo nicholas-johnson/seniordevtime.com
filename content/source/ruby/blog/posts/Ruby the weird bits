@@ -1,0 +1,40 @@
+Ruby the weird bits
+
+2.1.0 :003 > "2".to_i
+ => 2
+2.1.0 :004 > "2".to_i + 2
+ => 4
+2.1.0 :005 > "2".to_i +2
+ => 0
+2.1.0 :006 > "2".to_i + 2
+ => 4
+2.1.0 :007 > "#$"
+SyntaxError: (irb):7: unterminated string meets end of file
+  from /Users/nicholas/.rvm/rubies/ruby-2.1.0/bin/irb:11:in `<main>'
+2.1.0 :008 > '#$'
+ => "\#$"
+2.1.0 :009 > "#$""
+2.1.0 :010"> ^C
+2.1.0 :010 > ?a
+ => "a"
+2.1.0 :011 > 'hello'[0]
+ => "h"
+2.1.0 :012 > 'hello'[0]%%%
+2.1.0 :013"> ^C
+2.1.0 :013 > %%%
+ => ""
+2.1.0 :014 > %
+2.1.0 :015"> ?????:%%%
+2.1.0 :016 > ^C
+2.1.0 :016 > ?????:%%%
+(irb):16: warning: string literal in condition
+ => "?"
+2.1.0 :017 > ??
+ => "?"
+2.1.0 :018 > ?? ? ?? : true
+(irb):18: warning: string literal in condition
+ => "?"
+2.1.0 :019 > ?????:??
+(irb):19: warning: string literal in condition
+ => "?"
+2.1.0 :020 >

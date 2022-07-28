@@ -1,0 +1,30 @@
+
+.book_cover {
+  text-align:center;
+}
+
+article {
+  width:$desktop;
+  margin:0 auto;
+  padding:0 $gutter;
+  img {
+    width:100%;
+  }
+
+  section {
+    margin: 0 auto 5em auto;
+    // width: $article_width;
+  }
+
+  @media (max-width: $desktop) {
+    & {
+      width:auto;
+      padding:0;
+      margin:0;
+    }
+
+    section {
+      width: auto
+    }
+  }
+}

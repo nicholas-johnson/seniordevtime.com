@@ -1,0 +1,1568 @@
+
+
+
+# Blocks #
+
+Blocks are where the fun really starts. A block in Ruby is a sort of unnamed function that can be passed to a method using a special syntax. It can be as long or as complicated as we like, and can span many lines. Here's a simple example:
+
+    5.times {puts "Ruby Ruby"}
+
+    Ruby Ruby
+    Ruby Ruby
+    Ruby Ruby
+    Ruby Ruby
+    Ruby Ruby
+
+The block here is the bit of code: puts "Ruby Ruby". This piece of code is passed to the times method. We use blocks for everything in Ruby, most notably when looping, but in plenty of other ways too. Come with me now as we enter the world of loops…
+
+## Why is this cool? ##
+
+This is super great because it means that the number 5 knows in itself how to iterate up to itself. We have perfect encapsulation. We don't need a for loop. We don't need to make any assumptions about implementation. It's all hidden under the surface.
+
+## Passing parameters to a block ##
+
+We can have our function pass parameters to it's block. We do this using the | | "chute" syntax. For example:
+
+    5.times{|i| puts i}
+
+    0
+    1
+    2
+    3
+    4
+
+Here the times method passes a number to the block, which is available in the variable i. This is one of the many ways in which we do iteration in Ruby.
+
+## Blocks are better than loops ##
+
+One of the most common and programmer friendly applications of blocks is in looping. Many objects, most notably, Arrays and Hashes will accept a block then apply that block to each of their members in turn. All the looping code is encapsulated, meaning we don't need to worry about the internal structure of the array.
+
+    people = ["jim","harry","terrence","martha"]
+    people.each { |person| puts person }
+
+      => "jim"
+      "harry"
+      "terrence"
+      "martha"
+
+As we saw earlier, the Fixnum.times method works in a similar way:
+
+    5.times { puts "Ruby" }
+
+      => Ruby
+      Ruby
+      Ruby
+      Ruby
+      Ruby
+
+If we wanted to iterate over some specific numbers, we might use the upto method to create an Enumerable object, and then iterate over that. Observe:
+
+    5.upto(10) {|i| puts i}
+
+      => 5
+      6
+      7
+      8
+      9
+      10
+
+We could also iterate over a Range object. more on Ranges shortly:
+
+    (6..8).each {|i| puts i}
+      => 6
+      7
+      8
+
+The most common use of a loop, iterating over an array is totally covered, and in fact, when writing Ruby code, we almost never write the sort of looping constructs you might be used to. Blocks have them covered
+
+## each_with_index ##
+
+If for some reason we need t get the index of an array, we can do this too using Array.each_with_index.
+
+This method accepts a block with two parameters, the value and an index. We can use it like so:
+
+    people = ["jim","harry","terrence","martha"]
+    people.each_with_index { |person, i|   puts "person: #{i} is called #{person}" }
+      => person: 0 is called jim
+      person: 1 is called harry
+      person: 2 is called terrence
+      person: 3 is called martha
+
+## Short and Curlies ##
+
+We can declare a block in two ways. We can use the curly braces syntax, or the do/end syntax.
+
+The difference between them is that the curly braces syntax can only take a single line of code, whereas the do/end syntax can take as much code as you like, even an entire web page template if needed.
+
+Here is an example of the curly braces syntax:
+
+    favourable_pets = ["kittens","puppies","hamsters"]
+
+    favourable_pets.each_with_index { |pet, i| puts pet }
+      => kittens
+      puppies
+      hamsters
+
+And here is an example of the do/end syntax. Notice the code is more spread out. This is more readable for large blocks of code.
+
+    favourable_pets.each_with_index do |pet, i|
+      puts pet
+      puts i
+    end
+
+      => kittens
+      0
+      puppies
+      1
+      hamsters
+      2
+
+## Sorting an Array Using a Block ##
+
+By default array.sort will sort any array of values using the <=> spaceship method of the value. This method as we have seen returns -1, 0 or 1 depending on whether the value is lower, equivalent or greater than another value. The String class implements the <=> method by comparing the two values alphabetically, so by default array.sort sorts an array of strings alphabetically like so:
+
+    array = ["James", "Derek", "Stuart", "Thomas"]
+    puts array.sort
+      => Derek
+      James
+      Stuart
+      Thomas
+
+If we want to override this, tehre are two easy ways to do it. First we can override the spaceship operator (coming soon). Alternately, we can pass Array.sort a block which can be used instead. For example the following code sorts an array in order of the second letter:
+
+    array = ["James", "Derek", "Stuart", "Thomas"]
+    puts array.sort {|a,b| a[1] <=> b[1]}
+      => James
+      Derek
+      Thomas
+      Stuart
+
+Nice and Simple.
+
+## Writing a method to accept a block with yield ##
+
+So how does this actually work? How does a method yield control to a block? Well, we use a keyword called yield. For example, the following (very simple and not terribly useful) function accepts a block of code and then simply runs it once:
+
+
+    def do_once
+      yield
+    end
+
+    do_once {puts "hello"}
+      => "hello"
+    do_once {10+10}
+      => 20
+
+You can call yield as many times as you like. This is how the Array.each method works, by iterating over the array and calling yield for each item, passing the item as a parameter. Here's a silly example:
+
+    def do_thrice
+      yield
+      yield
+      yield
+    end
+
+    do_thrice {puts "hello"}
+      => "hello hello hello"
+
+    do_thrice {puts "hello".upcase}
+      => "HELLO HELLO HELLO"
+
+## Passing Parameters to a Block ##
+
+A block is an unnamed function and you can easily pass parameters to it. The following example accepts an array of names and for each one sends a greeting to the block. The block in this case just puts the greeting to the screen.
+
+    def greet(names)
+      for name in names
+        yield("Hi There #{name}!")
+      end
+    end
+
+    greet(["suzie","james","martha"]) { |greeting| puts greeting }
+      => Hi There suzie!
+      Hi There james!
+      Hi There martha!
+
+## What to Do Now? ##
+
+Congratulations! Well done Ruby developer. Now attempt the following exercises on blocks and yield. Marks are awarded for clarity of thought, and beauty of implementation.
+
+## Counting with Blocks Exercise ##
+
+Blocks are unnamed functions that can be passed to a method. They are used a lot in Ruby so it's important that we get good at them. Lets have a go now...
+
+1. Using the Fixnum.times method, write code which prints "Hello Ruby" to the screen 100 times.
+2. Modify your code so that it prints the numbers 1 to 100 to the screen.
+
+
+## Sorting arrays with Blocks Exercise ##
+
+Array.sort predictably allows us to sort an array. It accepts a block with two arguments, like so:
+
+    [1,4,2,3].sort {|a,b| b <=> a}
+
+This code sorts the array in reverse order. Note that the sort method creates and returns a new array. It is non-destructive, since the original array still exists unchanged. If you want instead to change the array in place you would use:
+
+    [1,2,3,4].sort!
+
+Now attempt the following exercises:
+
+1. Create an array of strings. Use the Array.each method to iterate over the whole array, printing out the strings to the screen.
+2. Use the Array.sort method to sort the array.
+3. Use Array.sort to sort the strings by length, rather than alphabetically. Do this by passing Array.sort a block which returns -1, 0, or 1 depending on whether the first string is shorter, the same length as, or longer than the second.
+
+__Extra hard secret bonus questions:__
+
+4. Create an array of integers. Sort it so that the numbers, when modded by 10, are in order, so for example:
+
+    [1, 120, 19, 13, 906 ]
+
+would become:
+
+    [120, 1, 13, 906, 19]
+
+since 120 % 10 is 0.
+
+5. Create an array of integers, 1 to 52. Now shuffle them using Array.sort. How will you do this?
+
+
+## Iterating over an array Exercise ##
+
+We can pass a block to an array to be executed on each item in that array. For example:
+
+    ['fork','knife','spoon'].each {|table_item| puts table_item}
+
+Our code doesn't need to know the internal details of the array, it just passes a block, and lets the array sort itself out.
+
+1. here is an array of strings. Pass a block to Array.each printing them out one by one.
+
+    ['cats','hats','mats','caveats']
+
+2. Modify your code to only print out only strings which contain the letter 'c'
+3. The each_with_index method accepts a block with two parameters, the value, and the index. Use it to print out the strings in the array preceded by their index in the array like this:
+
+    1. cats
+    2. hats
+    3. mats
+    4. caveats
+
+4. Repeat the exercise above, but now only print out every string with an odd number index.
+
+## Text Replacement with blocks and and gsub Exercise ##
+
+The String.gsub method will find and replace substrings in text. It's terribly useful, but sometimes we need more, we need to find and manipulate strings in text.
+
+Say you have a string containing URLs, maybe culled from twitter. You could replace all the urls like this:
+
+    tweet_text = "hello http://www.google.com hi"
+
+    tweet_text.gsub(/http:\/\/[^ ]*/, "A URL was here.")
+
+      => "hello A URL was here. hi"
+
+This is OK, but what if we wanted to replace the URL with a functioning link. The gsub method will optionally accept a block. The block receives a parameter which contains the match. The block must then return a value which is used to replace the match.
+
+1. Create a string containing one or more URLs. Now write code using gsub to hyperlink all the urls.
+2. Assume your string is a tweet. Now write code to hyperlink all the hash tags. Hashtags start with a # and end with a space or newline.
+3. Finally write code to hyperlink all the user names. User names start with @.
+
+
+
+
+## More with arrays Exercise ##
+
+Array.delete_if accepts a block. It removes elements from an array if they match certain criteria.
+
+1. Make an array of strings. Use Array.delete_if to remove any strings that are over a certain length
+
+## Print Times Exercise ##
+
+1. Write a method that accepts an integer and a block and runs the block the number of times specified by the integer. You should be able to call it like this.
+
+    number_of_times 10 {| i | print "this is time #{i}"}
+
+## Answers ##
+
+### Counting With Blocks ###
+
+1. We can do this simply using 10.times and passing a block
+
+    10.times {puts "ruby"}
+
+2. The times method can pass a variable to the block.
+
+    10.times {|i| puts i}
+
+### Sorting Arrays with Blocks ###
+
+1.
+
+    a = ["ant","herbivore","cheshire"]
+    a.each {|str| puts str}
+
+2.
+
+    a.sort
+
+3.
+
+    a.sort {|a,b| a.length <=> b.length}
+
+__Extra hard secret bonus questions:__
+
+4.
+
+    a.sort{|a,b| a%10 <=> b%10}
+
+5. You could create this array by typing out all the numbers, or even by using a for loop, but the simplest way to create an array of integers is to start with a range, and convert it using to_a. We will cover ranges shortly
+
+    cards = (1..52).to_a
+
+We can then shuffle the deck by sorting randomly, eg:
+
+    cards.sort {rand <=> rand}
+
+You could also have:
+
+    cards.sort {rand - 0.5}
+
+This works because rand - 0.5 will produce a negative or a positive number at random.
+
+### Iterating Over an Array ###
+
+1. The simplest way is to pass a block to array.each, which receives each item and puts it to the screen.
+
+    ['cats','hats','mats','caveats'].each {|item| puts item}
+
+2. A simple if statement in the block will only output strings that include the letter c.
+
+    ['cats','hats','mats','caveats'].each {|item| puts item if item? 'c'}
+
+3. each_with_index passes two values into the block. Then we compose them into a string and put them on the screen.
+
+    ['cats','hats','mats','caveats'].each_with_index { |item,i| puts "#{i}. #{item}" }
+
+4. Another if statement, this time on i. If i is odd, put the item on the screen.
+
+    ['cats','hats','mats','caveats'].each_with_index { |str,i| puts "#{i} #{str}" if i.odd? }
+
+You could also split this over 7 lines to make it easier to read:
+
+    items = ['cats','hats','mats','caveats']
+    items.each_with_index do |item,i|
+      if i.odd?
+        puts "#{i} #{item}"
+      end
+    end
+
+Many people prefer the longer format.
+
+# Loops #
+
+Ruby is unusual in it's approach to looping. It has all the usual constructs, for, while and for in, but for the most part we perform iteration by passing blocks around.
+
+However Ruby does have most of the usual looping constructs in case you ever need them, and has very clean syntax.
+
+
+## While Loop ##
+
+    bacon = 0
+    while bacon < 10
+      puts "bacon is limited to #{bacon += 1}"
+    end
+    puts "my bacon collection is now complete"
+
+While can operate on a block. This is equivalent to do while.
+
+    begin
+      bacon += 1
+    end while bacon < 10
+
+
+## While as a Statement Modifier ##
+
+A while loop can also be used as a statement modifier. We can repeat a single line until a condition is true.
+
+    amount_of_bacon = 0
+    desired_amount_of_bacon = 10_000
+
+    amount_of_bacon += 10 while amount_of_bacon < desired_amount_of_bacon
+    puts "I now have #{amount_of_bacon} bacon"
+
+## Until Loop ##
+
+An until loop is the opposite of a while loop. The code will be iterated over until a condition becomes true.
+
+    cheese = 0
+    until cheese >= 10
+      puts "cheese level is insufficient: #{cheese += 1}"
+    end
+    puts "we have sufficient cheese to proceed"
+
+
+## Until as a statement modifier ##
+
+We can also use until as a statement modifier, looping over a single line until a condition becomes true.
+
+    puts "Cheese level increasing to: #{cheese += 19}" until cheese >= 150
+
+
+## For loop ##
+
+Ruby for loops are a little different from many other languages. They always iterate over an object, be that a range or an array, like so:
+
+Iterating over a range:
+
+    for i in 1..5
+      puts i
+    end
+      => 1
+      2
+      3
+      4
+      5
+
+Iterating over an array:
+
+    for i in ['hats','scarves','gloves']
+      puts i
+    end
+      => hats
+      scarves
+      gloves
+
+
+## High / Low Exercise ##
+
+We don't use loops in Ruby nearly as often as in other languages, since blocks provide most of same functionality with a nicer syntax and improved encapsulation, but we do still occasionally need them.
+
+1. Write a program that allows the user to repeatedly enter a number and tells them if it is too high or too low. Exit when they guess correctly.
+2. Re-implement the last task using an until loop.
+
+# Hashes and Symbols #
+
+Hashes are a big deal in Ruby. We use them a lot, particularly when passing bits of data around. Symbols are tiny lightweight Ruby placeholder objects. They are often used in conjunction with hashes. In this section we will look at hashes, symbols, and some of their common uses.
+
+## Symbols are not Magic Runes ##
+
+Symbols are not magic runes
+
+Symbols often seem like magic runes to Ruby newcomers. In fact they're just little objects that have some special features and syntax surrounding them to make them a little easier to use and a little lighter on the computers memory.
+
+
+## Symbol syntax ##
+
+Symbols are defined using the colon operator or the to_sym method:
+
+    :price
+    :length
+    :outrageousness
+    "My Price".to_sym
+
+## Features of Symbols ##
+
+* Symbols are tiny little objects
+* Symbols don't have a value, they are placeholders, not variables.
+* There can only ever be one symbol with a particular name, this is managed by Ruby. Because of this they are not processor or memory intensive.
+
+## There can only be one ##
+
+A symbol will only exist once in memory, no matter how many times it is used. If for example, you create two symbols in different paces both called :name for example, only one object would be created. This object would persist for as long as the Ruby interpreter was running.
+
+## Uses of Symbols ##
+
+Symbols are most commonly used as placeholders in Hashes. We have used symbols already in Rails, for example the Rails params hash associates any the values of any parameters passed in by the user (from a form or in the url) with a symbol representing the name of that value.
+
+## Hashes ##
+
+Hashes are objects that associate lists of arbitrary objects with each other. For example:
+
+animals = Hash.new
+animals[:tall] = "giraffe"
+animals[:minute] = "kitten"
+puts animals.inspect
+
+## Hash Assignment Shorthand ##
+
+    animals = {:tall => "giraffe", :minute => "kitten"}
+    puts animals[: minute]
+      => kitten
+
+## Setting Default Values in a Hash ##
+
+
+
+A hash will return nil if it can't find any matching keys. You can set a default value that a hash will return in this instance should you so desire.
+
+    animals = Hash.new("monkey")
+    puts animals[:funny]
+      => "monkey"
+
+You can also set this value using the Hash.default method
+
+    animals.default = "star mole"
+    puts animals[:odd]=> star mole
+
+## Any Objects can be used as a key ##
+
+Any Object can be used as a key. Here we use the number 45 as a key, and store the root directory of the local file system as a value:
+
+    animals[45] = Dir.new '/'
+    puts animals.inspect # {45 => #<Dir:0x284a394>
+
+It's all allowed.
+
+One caveat to bear in mind, if you are using Ruby 1.8.6 or less, you can't use a hash as a key in another hash. This is an issue that was addressed in Ruby 1.8.7 and up.
+
+## Passing hashes to a method ##
+
+Ruby has a useful shorthand for passing a hash to a method. As long as no arguments come after the hash you can forget about the braces giving us a nice rails style way of talking to our objects. Rails uses this syntax extensively.
+
+More on this in the section on Functions.
+
+----
+
+
+
+# Functions #
+
+## Defining Functions ##
+
+Functions are declared using the def keyword:
+
+    def greeting
+      puts "Hello Ruby"
+    end
+
+    greeting()
+      => Hello Ruby
+
+
+## Accepting parameters ##
+
+Functions can accept parameters as you would expect. We pass them like this:
+
+    def greet(name)
+      puts "hello #{name}"
+    end
+
+    greet("dave")
+    => "hello dave"
+
+
+## Optional braces ##
+
+When calling a function, the braces are optional.
+
+    greet "dave"
+      => "hello dave"
+
+This is a really nice syntax, and comes into it's own when we start writing methods.
+
+## Returning a Value ##
+
+Functions can return a value. We pass back a value using the return statement, like so:
+
+    def get_greeting_for(name)
+      return "hello #{name}"
+    end
+
+    puts get_greeting_for "dave"
+    => "hello dave"
+
+get_greeting_for "dave" **evaluates** to the string "hello dave". This string is received by puts, which then outputs it to the screen.
+
+## Optional return statements ##
+
+The return statement is also optional. If it's omitted the function will return the last evaluated expression, so:
+
+   def get_greeting_for(name)
+     "hello #{name}"
+    end
+
+    puts get_greeting_for "dave"
+    => "hello dave"
+
+This is a clean and useful syntax for short methods.
+
+## Default Values ##
+
+We can set the default value of an argument, so if no value is passed, our function will still work:
+
+    def get_greeting_for(name="anonymous")
+      return "hello #{name}"
+    end
+
+    puts get_greeting_for
+    => "hello anonymous"
+
+Note that if we have several arguments, and some are missing, they will be filled in from left to right, so the last ones will take their default values. This might not be what you want.
+
+## Receiving a Hash ##
+
+A function can receive a hash of values. This is tremendously useful.
+
+    def get_greeting_for(args={})
+      name = args[:name] || "anonymous"
+      return "hello #{name}"
+    end
+
+    puts get_greeting_for :name => "Fat Tony"
+    => "hello Fat Tony"
+
+    puts get_greeting_for
+    => "hello anonymous"
+
+Here our function receives a parameter we've called args. The default value of the args parameter is an empty hash. Any key value pairs we pass will go into args, and can be pulled out.
+
+On the second line we do this:
+
+    name = args[:name] || "anonymous"
+
+Here we set the value of name to be either the value stored in args under the :name key, or if this evaluates to nil (and therefore false) we set it to anonymous. This is tremendously useful, since we can create functions that accept multiple arguments, in any order, with any defaults that make sense.
+
+# Ranges #
+
+Ranges are useful objects that can be used to represent a sequence. Ranges are defined using the .. or ... syntax. For example
+
+1..10
+
+represents the sequence of numbers between 1 and 10.
+
+1...10
+
+represents a range that excludes the high value. In this case the numbers 1 to 9
+
+
+## Ranges in Memory ##
+
+Ranges are compact. Every value in the range is not held in memory, so for example the range:
+
+1..100000000
+
+...takes up the same amount of memory as the range:
+
+1..2
+
+
+## Conversion to arrays ##
+
+Ranges can be converted to arrays using to_a like so
+
+(1..10).to_a
+  => [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+
+Note we need to put braces around the range here to disambiguate the dots.
+
+
+## Character Arrays ##
+
+We can also declare arrays of characters like this:
+
+    'a'..'f'
+
+
+## Testing if a range contains a value. ##
+
+We can use the equality === operator to test if a range contains a value. For example:
+
+('a'..'f') === 'e'
+  => true
+
+('a'..'f') === 'z'
+  => false
+
+
+
+# Objects #
+
+Ruby is Object Oriented. Many languages claim to be object oriented, but most fall short in some area or another. When Ruby says it's object oriented, it really realy means it.
+
+We have used lots of Ruby objects so far, when we have done things like
+
+    "hello".reverse
+
+and
+
+    5.upto 1000
+
+Lets look now at how we can define our own objects.
+
+
+
+## Classes ##
+
+Ruby has a class based object model. This means we define classes, then use them to stamp out as many objects as we like. Of course, this being Ruby, classes are objects and have methods in their own right, but we'll get to this soon enough.
+
+Lets look now at defining a class.
+
+    class Pet
+    end
+
+Here we have defined a very simple class, called Pet. Classes in Ruby always start with a capital letter. Now lets create a pet:
+
+    flopsy = Pet.new
+
+This is great, we have created a new instance of the Pet class. Flopsy is an instance of Pet.
+
+Note that all objects get a new method for free. This they inherit from the Object superclass. More on inheritance in a bit.
+
+
+## Finding the class of an object ##
+
+We can go in reverse, to find the class of an instance like this
+
+    flopsy.class
+      => Pet
+
+Ruby doesn't shy away from introspection, it comes baked in, as we shall see later.
+
+
+## Methods - Giving Flopsy Abilities ##
+
+This is all very nice, but flopsy is not very interesting, she can't walk the tightrope or play chess, or really do anything much. To make Flopsy more interesting, we need a method:
+
+    class Pet
+      def play_chess
+        puts "Now playing chess"
+      end
+    end
+
+Here see now. We have added a play chess method to flopsy. We can now write:
+
+    flopsy.play_chess
+
+...and she will, after a fashion. She is only a housepet after all.
+
+
+## Naming Conventions ##
+
+There are a few things to bear in mind when naming methods in Ruby if you want to appear cool and down with the kids.
+
+First, use snake case for all function names, like this.
+
+    each_with_index
+
+Second, if your method returns a boolean, and is a question, frame it as such. Use a question mark, like so:
+
+    ['toast','jam','honey'].include? 'ham'
+    person.has_name?
+    password.valid?
+
+Third, if your method modifies the original object in place, rather than returning a new object, and is therefore destructive, indicate this with an exclamation mark, like so:
+
+    ['toast',['jam','honey']].flatten!
+      => ['toast','jam','honey']
+
+## Instance variables - Giving flopsy some superpowers ##
+
+Flopsy is still a little dull. It would be great to be able to store some data about her, maybe give her some custom attributes.
+
+In Ruby we save an instance variable using the @ syntax. Instance variables are @ variables. All instance variables are private, so to get at them, we need to write methods called getters and setters to access them. Lets have a look now:
+
+    class Pet
+
+      def super_powers=(powers)
+        @super_powers = powers
+      end
+
+      def super_powers
+        @super_powers
+      end
+
+    end
+
+Here we have given flopsy two methods, a getter and a setter. The first is a setter. The super_powers= method receives a parameter and stores it in an instance variable called @super_powers.
+
+The second is a getter. It simply returns the @super_powers instance variable that was previously set.
+
+We can now set flopsy's super power like this:
+
+    flopsy.super_powers = "Flight"
+
+and retrieve it like this:
+
+    flopsy.super_powers
+      => "Flight"
+
+Note we don't have to declare the @super_powers variable anywhere. We can just set it, and that's fine.
+
+## This is great because... ##
+
+Getters and setters give us a clean way to provide an interface onto our object. It insulates us from implementation details. We are free to store the data in any way we wish, as a variable, as a file, in a database, in an encrypted hash, or as a combination of other variables.
+
+This is how active record works when using Rails. Values can be got from the database as though we were accessing object attributes.
+
+Just like Flopsy, the boundary between attributes and methods is far more fuzzy than in most languages. This is partly because of Ruby's optional parentheses, which make it look as though we are accessing attributes, when in fact we are always accessing methods.
+
+We can have read only attributes by only creating a getter, and write only attributes by only creating a setter. An example of a write only attribute would be a password, which might get set, and then encrypted with a one way hash, never to be read again.
+
+## The attr method ##
+
+Since class variables are so common, ruby defines shortcuts for creating them and their associated getters and setters. The attr method creates an attribute and its associated getter. If the second parameter is true a setter is created too. The attr_reader and attr_writer methods create getters and setters independently.
+
+
+## Initialising flopsy using the initialize method. ##
+
+The initialize method is called by the new method and it is here that we put any code we need to initialize the object.
+
+When flopsy's sidekick mopsy was first created, she didn't have any powers at all, observe:
+
+    mopsy = Pet.new
+    mopsy.super_powers
+      => nil
+
+Poor mopsy. We can remedy this situation by giving mopsy a basic superpower when she is initialised. Lets do this now.
+
+    class Pet
+      def initialize(args = {})
+        @super_powers = args[:power] || "Ability to hop really really quickly"
+      end
+    end
+
+Now when we recreate mopsy, she comes already tooled up
+
+    mopsy = Pet.new
+    mopsy.super_powers
+      => "Ability to hop really really quickly"
+
+We can also do this:
+
+    mopsy = Pet.new :power => "none worth mentioning"
+    mopsy.super_powers
+      => "none worth mentioning"
+
+If you need to see a list of all mopsy's attributes you can do so using inspect like so:
+
+    mopsy.inspect
+      => "#<Pet:0x102f87fe8 @super_powers=\"Ability to hop really really quickly\">"
+
+## Ruby Objects are Open ##
+
+Because Ruby is an interpreted language objects are open and can be modified at runtime. Classes can be reopened at any time.
+
+We can give mopsy new methods, even after she has already been created. Observe:
+
+    class Pet
+      def shoot_fire
+        puts "now shooting fire"
+      end
+    end
+
+    mospy.shoot_fire
+      => now shooting fire
+
+Mopsy can still play chess. The Pet class was added to, not overwritten
+
+    mopsy.play_chess
+      => Now playing chess
+
+## Inheritance ##
+
+Rails supports single object inheritance. This means a class can have one parent class and inherits all that class' methods and attributes. We define inheritance relationships using the < operator.
+
+For example, let's say we'd like to define a particular type of pet, say a small and fluffy kitten. Let's create a kitten class that can inherit from our Pet class:
+
+    class Kitten < Pet
+      def play_tennis
+        puts "I am now playing tennis"
+      end
+    end
+
+Our kitten now has all the attributes of a pet. It can shoot fire from it's eyes, and play some good chess, but in addition it can also play tennis:
+
+    tiger = Kitten.new
+    tiger.play_tennis
+      => I am now playing tennis
+    tiger.shoot_fire
+      => now shooting fire
+
+## Operator Overloading ##
+
+Did I mention that in Ruby everything is an object? This extends to operators, such as +, -, * and /. Operators in Ruby are actually methods, and we can define and redefine them, like so:
+
+    class Pet
+      def +(pet)
+        p = Pet.new
+        p.super_powers = self.super_powers + " and also " + pet.super_powers
+        return p
+      end
+    end
+
+Here we have defined a plus method that receives another pet. This simply creates a new pet with the combined superpowers of it's two parents and returns it. Observe the offspring of Mopsy and Flopsy:
+
+    cottontail = mopsy + flopsy
+    cottontail.super_powers
+      => "Ability to hop really really quickly and also Flight"
+
+## Modifying an Existing Class ##
+
+As we've mentioned before existing classes can be extended. This includes built in Ruby classes. This is a feature that can be used both for good, and for evil:
+
+**Good example**
+
+    class String
+      def put_times(n)
+        for i in (1..n)
+          puts self
+        end
+      end
+    end
+
+    "Marmalade Toast".put_times 5
+
+
+**Evil Example**
+
+    class Fixnum
+      def *(num)
+        self + num
+      end
+    end
+
+    puts 5*4
+      => 9
+
+Yes, Ruby lets you do this. Be careful and do things and your code will read like liquid sunlight.
+
+## Monkey Patching ##
+
+Reopening code in this way is often known as monkey patching. We can modify or extend any existing class at runtime, even built in classes like strings and arrays. This can be used to great effect, for example Rails Fixnum date extensions, which allow you to type things like:
+
+Date.today + 5.days
+
+Here Fixnum has been monkey patched with an function that allows it to work with dates and times. This is a nice syntax, although it makes some people cross as it appears to break encapsulation.
+
+Monkey patching is fun, but use it with care, otherwise you'll end up with a twisted mess.
+
+## Object Exercises ##
+
+Everything is an object, so it's important that we get a whole lot of practice in with making them. In this series of exercises we will create a class, implement some methods, overload some operators and create some virtual attributes.
+
+### Exercise 1 - Define your class ###
+
+1. Define a class either for a lethal warship or a fluffy animal, depending on your mood today.
+2. Add methods so you can set a name for your gunship/fluffster.
+3. Add methods to get and set an age in milliseconds.
+4. Write a method that retrieves the age in days. You should use the same age attribute as in 3, just modify it before returning it.
+5. Write a method that sets the age in days. Again, use the same age attribute, just monkey with it a bit before setting it.
+6. Write a getter that returns the age in weeks. (age in days / 7)
+6. Write getters and setters that return a string representing a standard action, e.g. "wriggle cutely", or "blow things up with extravagant firepower"
+6. Implement the + operator. Have it return a new object with the names and standard actions concatenated.
+7. Implement the * operator. Have it return an array containing multiple instances of the object. (either copies, or several variables pointing to the same object, free choice.)
+
+__Bonus Exercises__
+
+8. Create an initialiser that accepts a hash and sets default vales appropriately.
+
+### Exercise 2  - Read only virtual attributes ###
+
+1. Add x and y position attributes, with getters, but no setters. Initialise the position attributes to be zero.
+2. Add move north, south, east and west methods. When these methods are called they should modify the x and y positions.
+3. Add a distance_from_home method that computes the current distance from home.
+4. Add an at_home? method that returns true if the person is at home, i.e. if their x and y coordinates are zero.
+
+### Exercise 3 - Sorting you custom class ###
+
+1. Implement the spaceship operator on your class. The spaceship operator returns either −1, 0 or 1 depending on whether the first operand is less than, the same as, or greater than the second one.
+2. Now create an array of objects based on your class, and sort them.
+3. Pass Array.sort a block, and sort the array based on different criteria.
+
+# Modules (Mixins) #
+
+Modules can be used to add reusable functionality to a class. They are sometimes known as Mixins. A module consists of a whole bunch of methods. By importing it into a class, we gain access to all those methods. This is a handy way to get around the restrictions of single object inheritance, since we may import as many modules as we like.
+
+## Defining Shared Functionality ##
+
+Lets teach flopsy how to make an omelette. Then she will be able to help out in the kitchen. It would be nice if our omelette could accept a few options, so lets allow that too.
+
+    module CookOmelette
+      def cook_omelette(args={})
+        number_of_eggs = args[:number_of_eggs] || args[:eggs] || 2
+        cheese = args[:cheese] ? "cheese" : nil
+        ham = args[:ham] ? "ham" : nil
+        mushrooms = args[:mushrooms] ? "mushrooms" : nil
+        ingredients = [cheese,ham,mushrooms].delete_if{ |ingredient| ingredient.nil? }
+        ingredients = ingredients.join(" & ")
+        "#{ ingredients } omelette with #{number_of_eggs} eggs".strip
+      end
+    end
+
+Now include the mixin in the Pet class.
+
+    class Pet
+      include CookOmelette
+    end
+
+All our pets can now make delicious omelettes. Observe:
+
+    mopsy.cook_omelette
+      => "omelette with 2 eggs"
+    mopsy.cook_omelette :ham => true, :cheese => true, :eggs => 4
+      => "cheese & ham omelette with 4 eggs"
+
+## Module Inheritance ##
+
+Methods added to a class by a module are inherited by subclasses of that class. For example, by including the CookOmelette mixin in the Pet class the Kitten subclass and all its instances also gain that method:
+
+## Module Exercises ##
+
+Modules are a way to extract common functionality into a separate file that can be included elsewhere
+
+### Exercise 1 - Extracting Common Functionality ###
+
+1. Lets Create a module now. Extract the age and age_in_weeks methods into a module that can be included elsewhere. Now remove these from your class, and instead import the module.
+
+2. Write a stereo module that allows your class to play some cool random sounds (really strings). Add it to your class.
+
+# Ruby Newbie Exercises #
+
+Don't walk before you can swim. These Ruby Newbie exercises are designed to fill in any gaps in your knowledge. If you're struggling further on, try these first. If you're happy, skip to the next section.
+
+## Exercise 1 - If/Else ##
+
+1. Write a program that accepts a two numbers and tells the user which one was largest.
+
+Use the gets method to accept keyboard input:
+
+    gets input_number_one
+
+ and the to_i method to convert keyboard input into an integer like this:
+
+    input_number_one.to_i
+
+Your program should accept two inputs, then use if, elsif and else to tell the user which was largest, or if they were equal.
+
+2. Put your program logic into a function that you can call.
+
+## Exercise 2 - The Case Statement ##
+
+Write a food suggestion engine that listens to the user's food desires and suggests a food to match. You may wish to use a case statement.
+
+Hint: When using gets, you may need to use the chomp! string method to remove trailing newline characters. Make this as clever as you want.
+
+
+## Exercise 3 - Functions ##
+
+1. Write a function that accepts an integer and returns the value of the integer * 2.
+2. Write a function that accepts two integers and returns the value of the two integers added together.
+
+
+## Exercise 4 - Looping Exercise ##
+
+1. Use a for loop to print the numbers 1 to 10 backwards
+2. Use a for loop to print the number one once, the number two twice, etc.
+
+Bonus Credit
+
+3. Implement the above programs using an until loop.
+
+
+# Ruby Challenge Exercises #
+
+Tackle the following Ruby problems in whatever way you see fit. Points will be awarded for conciseness, readability and extreme cleverness.
+
+## Writing Concise Ruby Exercise ##
+
+1. Write a single line of Ruby that swaps the contents of two variables.
+2. Write a single line of Ruby that gets the last element from an array. Hint, there are several ways to do this.
+3. Write a single line of Ruby that reverses an array.
+4. Write a single line of Ruby that converts an array into an html unordered list.
+5. Write a single line of Ruby that reverses all the words that start with the letter a in a string.
+
+
+## Hashes Exercise ##
+
+1. Create a hash to hold a list of feelings and foods. It should look like something like this, only longer:
+
+    food_hash = {
+      :happy => "icecream",
+      :pensive => "witchetty grub"
+    }
+
+2. Write a program that allows a user to type in a feeling and have it return the corresponding food (Tip: use to_sym to convert the user's input into a symbol)
+
+## Monkey Patching Exercises ##
+
+1. Extend the Array class with a method that iterates over every other element. Call it like this:
+
+    names.every_other {|name| puts name}
+
+2. Extend the FixNum class with a green_bottles class that returns the lyrics for the popular song. For bonus points, make it accept a block that receives the song line by line.
+
+
+
+
+
+
+
+
+
+# Introduction to Rails #
+
+Hallo and Welcome to this intensely practical, wildly exciting, whirlwind tour of the Ruby on Rails web development framework. Rails is an intensely pragmatic , developer centric Rapid Application Development Framework that gets people all of a lather, since it allows a lone developer, or small team to create pretty much anything imaginable in double quick time.
+
+It's favoured by startups, since it allows you to try out  bunch of ideas lickety split. In fact it's almost as fast to write Rails as it is to write specifications. This enables iterative design, where we build a little code, show it to the client, and change it according to their feedback. This means happy clients and engaged, super productive developers.
+
+So, without further adieu, lets get this party started.
+
+# Diving In Exercise #
+
+This course is practical, so before we do anything else, we're going to make something that works. We'll come back to the theory afterwards, but for now, lets get or hands dirty.
+
+This exercise will be in four parts.
+
+1. First we'll create a server.
+2. Then we'll start it up.
+3. We'll hook it up to a database, and check that it works.
+4. We'll create a fully featured Rails application using a scaffold generator.
+
+## Step 1: Creating a server ##
+
+To get started, you'll need a command line or terminal. Get it up and type:
+
+    rails new superfly
+
+Wait an moment, now look, it's made some code for you. In a minute we'll take a look at what we've got, but for now, let's just start the server.
+
+## Step 2: starting the server ##
+
+Move into the superfly directory and type:
+
+    ruby script/rails server
+
+If all has gone to plan, the server should start and let you know it's listening on port 3000. Now pull up a web browser, I like Firefox, and visit:
+
+    http://localhost:3000
+
+See a welcome message? That's great! You're now riding the Rails.
+
+## Step 3: Hooking up the database ##
+
+Now we have a little housework to do. Don't worry, it won't take long. You'll need to choose which type of database you're going to use. Common choices are:
+
+SQLite: If you want an instant, low overhead database that's stored in your filesystem. Perfect for development, but good enough for production too.
+
+MySQL: If you want an arguably more robust database that can also be used on a production server.
+
+Of course if you want to use more than one type of database that's fine too, though maintaining consistency between your development and production environments is encouraged.
+
+
+### What you'll need to hook up the database ###
+
+You'll need three things to do this
+
+1. A database.yml file to tell rails the database type, name, username and password you want to use. You'll find that a sample database.yml file has been created for you in the config directory.
+2. An entry in the Gemfile, which tells Rails which database adapter to use. The default is sqlite3-ruby.
+3. The Gem itself. Gems are reusable bits of Ruby code which extend Ruby's functionality. You'll need a Gem that can talk to your database. In Rails we manage and install gems using a piece of software calle Bundler, which is itself a gem.
+
+
+
+### Installing the Bundler ###
+
+Before you begin, you'll need to install the Bundler gem. You'll only need to do this once. At a command line type:
+
+    sudo gem install bundler
+
+You will need to have root privileges to do this. The gem will be pulled from the internet and installed locally.
+
+The bundler lets you bundle gems into your rails application.
+
+### Now choose your database ###
+
+You are standing at a crossroads. Which road will you take? If you plan on useing SQLite, skip to the section on hooking up an SQLite database. Likewise for MySQL.
+
+### Hooking up an SQLite database ###
+
+Congratulations. This is the default, so you'll have the least work to do.
+
+__Edit database.yml__
+
+The default settings should be good here. SQLite databases are created on the fly, on demand, so you shouldn't need to make any changes. Your file should look something like this:
+
+    development:
+      adapter: sqlite3
+      database: db/development.sqlite3
+      pool: 5
+      timeout: 5000
+
+    test:
+      adapter: sqlite3
+      database: db/test.sqlite3
+      pool: 5
+      timeout: 5000
+
+    production:
+      adapter: sqlite3
+      database: db/production.sqlite3
+      pool: 5
+      timeout: 5000
+
+This file defines 3 databases for the three different modes, or "environments" in which Rails can run. The development and test databases will be used by us while we're working on the project locally. The production database will be used by the live server. We can add more environments if we wish. We might want to add a staging environment for example.
+
+Do please note that spaces matter in yaml. If you get a syntax error, it may be because of a missing space after a colon
+
+__Edit the Gemfile__
+
+Now have a look at Gemfile. We should see a line like this:
+
+    gem 'sqlite3-ruby', :require => 'sqlite3'
+
+This line tells Rails to use the sqlite gem. We don't need to change this.
+
+__Run Bundler__
+
+Now we need to run bundler to check our gems so at a command line type
+
+    bundle install
+
+This does two things. It will install any missing gems, and it will write to a file called Gemfile.lock which tells Rails which gems are installed. The gemfile enforces consistency between environments. We'll look at it in more detail later.
+
+
+
+### Hooking up a MySQL Database ###
+
+Using MySQL is a good choice, but you'll have a little more work to do as it's not the default.
+
+__Edit database.yml__
+
+You'll see a short file that defines 3 databases called development, test and production. By default this is set up to use SQLite, so we'll need to make some changes. A typical database.yml config file defines three databases and looks something like this:
+
+    development:
+      adapter: mysql
+      database: superfly_development
+      username: root
+      password: my_password
+      timeout: 5000
+
+    test:
+      adapter: mysql
+      database: superfly_test
+      username: root
+      password: my_password
+      timeout: 5000
+
+    production:
+      adapter: mysql
+      database: superfly_production
+      username: live_user
+      password: live_password
+
+There are three databases defined here, which correspond to the three different modes, or "environments" in which Rails runs by default. The development and test databases will be used by us while we're working on the project locally. The production database will be used by the live server. We can add more environments if we wish. We might want to add a staging environment for example.
+
+Do please note that spaces matter in yaml. If you get a syntax error, it may be because of a missing space after a colon.
+
+__Make the database__
+
+First you'll need to create one or more databases. You'll at least need a development database, and preferably a test database too. I use a tool called sequel pro for this, but you could use the command line, or another piece of software that lets you talk to a mysql database, for example SQLYog or Sequel Pro.
+
+__Edit the Gemfile__
+
+Now have a look at Gemfile. We should see a line like this:
+
+    gem 'sqlite3-ruby', :require => 'sqlite3'
+
+This line tells Rails to use the sqlite gem. We want to use the mysql database gem instead, so delete this line and replace it with:
+
+    gem 'mysql'
+
+This tells Rails we will need access to the mysql database.
+
+__Run Bundler__
+
+Now we need to run bundler to check our gems so at a command line type
+
+    bundle install
+
+This does two things. It will install any missing gems, and it will write to a file called Gemfile.lock which tells Rails which gems are installed. The Gemfile enforces consistency between environments. We'll look at it in more detail later.
+
+### Testing our database configuration ###
+
+To test our configuration, we will use a piece of software called rake. Rake stands for Ruby Make, and it's a little program that lets us define and run routine little tasks on our Rails server. More on rake later.
+
+Open up a terminal and type:
+
+    rake db:migrate
+
+At this point, either everything will run smoothly and your server will connect, or you will get errors. If you get errors, read them and do what they say.
+
+### Housework complete ###
+
+You should now have a functioning Rails instance that can start a server and connect to a database. Now on the the good stuff.
+
+## Step 4: Super super quick start with Scaffold ##
+
+One of the wow features of Rails is the scaffold generator. It lets you write a whole lot of code very fast. Pros tend not to use it, but it's a good way to demonstrate what can be done in next to no time.
+
+Open up a terminal and type the following:
+
+    ruby script/rails generate scaffold SuperHero name:string powers:text description:text
+
+This will, in a stroke, generate all the code needed to allow us to create, edit and view superheros. Lets try it out before we explain what we have done.
+
+Again, visit a terminal and type
+
+    rake db:migrate
+
+This will update our database. More on this shortly.
+
+Start your server with
+
+    ruby script/rails server
+
+your server should start up. Now in a web browser, go and visit:
+
+    http://localhost:3000/super_heros
+
+You'll find a complete website has been made for you. You can add superheroes, edit them, view a list, drill down to individuals, and then delete them. It's all rather slick, and terribly terribly quick to do.
+
+But what have we actually done?
+
+
+
+# Some Theory #
+
+It's pretty cool to get something working, and it's always impressive to do something quickly, but without a theoretical underpinning we won't get far.
+
+We've built a little skyscraper here. How lets go back and add the foundations.
+
+## So how do you build websites? ##
+
+All websites are the same: HTML, plus CSS, maybe a few images, and possibly a few other assets, Flash, JavaScript and the like. The user sends a request by hitting a URL with their browser. Sometimes the request is made automatically by JavaScript, and we call this AJAX. Sometimes the user hits the site using another app, and we call it a web service or API, but the principle is the same. A request is made and data is shipped back.
+
+What happens between the request and the return is a different matter. Maybe you have HTML files sitting and waiting to be shipped out. Maybe you have a template that fills itself in from a database. Maybe you have a whole other server that spits out HTML.
+
+
+
+## A naive approach to web design ##
+
+One way to tackle this is to write a single file which queries the database, pulling any data that's required, then writes it directly to an HTML file, adding any headers and footers that might be needed. This if OK for a simple site, it's how many PHP and classic ASP websites work, but what happens if we start to get more complicated.
+
+
+## How Rails handles a request. ##
+
+Rails uses a pattern called MVC, but you could call it "a place for everything, and everything in it's place". It's a general purpose design pattern which encourages separation of responsibilities, the view from the request logic from the business logic.
+
+### The Router ###
+
+The first thing that happens when a Rails instance receives a request is it gets passed to the router. The router inspects the URL and request header, passes it through a series of rules written by you, and decides which method on which controller to pass it to.
+
+### The Controller ###
+
+Assuming the router manages to interpret the URL correctly, it passes the request to a controller. A controller is just a Ruby object that has various methods for handling requests. Any URL or post parameters are separated out into the params hash automatically and become available.
+
+### Pulling models ###
+
+The controller can now pull up any models that are required. A model is a simple Ruby object that represents something. For example, if you are writing a blog, the model ight be a blog post. If you are writing a social network, the model might be a person. You might have an array of models. Models can be taken from the database, can be generated right there in the controller, or can be made in some other way.
+
+### Calling the View ###
+
+Having pulled or made any models, the controller now passes them to a view. A view inspects the models and generates some output which can be sent to the user. Most of the time this is HTML, but you can also output XML, PDF, XLS, JSON or any other format, depending on the request.
+
+### Helping the view ###
+
+The view has access to helper methods which are written in plain Ruby. These are defined in helper classes. You can split out tricky logic into helpers, keeping your views clean.
+
+## Rails Idioms: That's some RESTful DRY CRUD you've written ##
+
+Here are some ideas that Rails people hold dear to their hearts.
+
+### DRY: Don't Repeat Yourself. ###
+
+Don't repeat yourself. Write code once, in the correct place. Repetition leads to bugs.
+
+### Fat Model, Skinny controller ###
+
+The controller should do very little. Ideally it should just make, and call methods on the models. The models implement a series of simple, well defined, easy to understand methods that do most of the actual work. A place for everything and everything in it's place. Clean, easy to see, testable.
+
+### CRUD ###
+
+Create, Update, Delete (also index and view). These are the five actions (or subset thereof) that most controllers should implement.
+
+Say you want to let people view a list of blog posts. That would be the index method on the BlogPost controller.
+
+Say you have want to allow users to log in. That would be the New method in the Sessions controller.
+
+Say you want to let people sign out again. That would be the destroy method on the Sessions controller.
+
+When you think about it, most of the things you might want to do on a website fit into CRUD. You may need to break it sometimes, but try not to too often. Why not? A place for everything, and everything in it's place.
+
+### REST ###
+
+REpresentational State Transfer sounds complex but really just refers to the fact that HTML headers carry more information than just the URL. When the user makes a request via a form for instance, that's a POST request. Requests to the same URL, but with different request types can be handled differently by the Rails server.
+
+### MVC ###
+
+Model View Controller. Put your code in the right place.
+
+The Model contains your business logic, separated into simple, easy to understand methods.
+
+The View is responsible for writing a file that can be sent to the user. It contains as little code as possible. It calls methods on the model to get any data it needs.
+
+The Controller links the two together. It generates the model and passes it to the view, and optionally passes user parameters back to the model and saves it.
+
+# Make a Blog Rails Exercises #
+
+It's traditional to start out in Rails by constructing a blog. It's a bit like making your own lightsabre, it's a right of passage that every aspiring Rails Jedi must go through. We'll start out with a scaffold, then flesh it out.
+
+## Make a Blog with comments ##
+
+The following instructions are correct for Rails 3.0, but may be easily adapted for earlier versions.
+
+__Questions__
+
+1. Call Rails new to generate a new project. Create your database and hook it up. run bundle install to get all the gems.
+
+2. Use the rails scaffold generator to create a blog_post model. Blogs should have a title, author, date, intro text and main text. Make these with the generator and verify they work.
+
+The syntax for a rails scaffold generator (Rails 3.0) is as follows:
+
+ruby script/rails generate scaffold string:title text:intro
+
+etc...
+
+3. Create a comment model using the scaffold generator. Comments should have content, an email and an optional url.
+
+4. Create a one to many relationship between comments and blog posts.
+
+To create a one to many relationship, you need to:
+
+* Add a post_id field to the comment model. The easiest way to do this is to edit your nigration, and then run rake db:migrate:reset to rerun all migrations.
+* Add has_many :comments to your post model
+* Add belongs_to :post in your comments model
+
+5. Add a form to your blog post show page to let you add comments. The easiest way to do this is using a partial. You'll need to prepopulate the post_id field.
+
+6. Show all the comments on the post page. Since you have put has_many :comments in your post model, you can call @post.comments to get an array of comments. Iterate over this array on the show view.
+
+7. Edit the blog index page so it only shows the title and intro text for each blog post. Show a comment count on this page too.
+
+8. Set your default root url so it renders blog_post#index.
+
+9. Edit your layout file. Add a header and footer. Edit the stylesheet import so it imports a different stylesheet. Make your blog look pretty.
+
+
+
+## Add Validation ##
+
+1. Edit your BlogPost class to add validation. Use validates_presence_of to test for the presence of the title, intro and content fields.
+
+2. Ensure comments are over 5 characters, and fewer than 500 characters. Ensure the comment and email fields are mandatory.
+
+
+
+## Users and Sessions ##
+
+1. Add sessions. You'll need to run the sessions migration. Look up how to do this.
+
+2. Use the scaffold generator to create a person model. People should have a name, email address, and password.
+
+3. Create a sessions controller. It should have 3 methods new, create and destroy. Create a view for new which renders a login form. Look at your other forms to see how to do this. On submit, it should direct users to the session create action. Create appropriate routes for your actions. Look in the routes.rb file for instructions on how to do this.
+
+4. In create, inspect the params hash to see if a user exists with the email and password entered. If they do, add their id to the sessions hash.
+
+You can find a user given an email and password using something like the following:
+
+    @person = Person.find :conditions => ['email = ? and password = ?', params[:email], params[:password]]
+
+The session is implemented as a hash. If a person is found, add their ID to the session hash.
+
+    session[:person_id] = @person.id
+
+5. Edit your application_controller. Create a method called find_user. This should inspect the session hash, and create a @person instance variable if their is a person_id in the session.
+
+You can do something like:
+
+    Person.find session[:person_id]
+
+6. Edit your application controller. Add a before_filter that runs the find_user function always. We will now have a person available to us with every request.
+
+7. Edit your application_controller. Create a logged_in? method. If logged_in is falsey (nil), this should redirect to the sessions#new method.
+
+8. Edit your blog_post controller. Add a before_filter that calls logged_in? for every method except index and show.
+
+You should now have a blog that you can log into, add blog posts to, and comment on.
+
+
+
+## More Filters ##
+
+1. Add before filters on the comments controller. to prevent people from deleting comments unless they are logged in.
+
+2. Edit the application_helper. Add a method: logged_in? that returns true if there is an @person instance variable.
+
+3. Edit your view so that people cannot see links that they should not be able to see. Something like:
+
+    <% if logged in? %>
+      link
+    <% end %>
+
+# Ajax Exercise #
+
+In order to perform AJAX requests
+
+## Unobtrusive JavaScript ##
+
+Unobtrusive JavaScript
+
+All the ajax code to perform ajax requests is found in rails.js. We can include it just by including the defaults:
+
+    <%= javascript_include_tag :defaults %>
+
+## Appendix 1: Environment setup ##
+
+To develop in Ruby you'll need:
+
+A copy of the Ruby interpreter. The most common at time of writing are 1.8.7 or 1.9.2. Choose the one that runs on your platform.
+
+A text editor, usually either TextEdit for the Mac or E Editor for Windows.
+
+
+
+## Itinerary for a Mixed Group ##
+
+Day 1
+
+Morning
+Demonstrate:
+Strings
+Variables
+Integers
+Floats
+Arrays
+Booleans
+Flow Control
+Blocks
+
+Demo the above
+
+Work through first half of the book.
+
+Afternoon
+Demonstrate:
+Classes and Objects
+Ranges
+Hashes
+Hashes as Function Arguments
+Mixins
+Monkey Patching
+
+Demo
+Pet has instance variables, getters, setters
+Kitten inherits from pet
+Mile, centimeter monkeypatch
+Mile centimeter module.
+
+
+## Rails ##
+
+### Controllers ###
+
+One controller method for each action
+
+Subclass Application Controller
+
+## Further reading ##
+
+http://coreyhoffstein.com/2009/02/24/rubys-eigenclass-and-metaclass/
+
+http://jasonseifer.com/2010/04/06/rake-tutorial

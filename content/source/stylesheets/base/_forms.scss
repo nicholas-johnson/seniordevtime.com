@@ -1,0 +1,62 @@
+@import '../imports';
+
+form {
+  margin:0;
+  padding:0;
+}
+
+fieldset {
+  border:none;
+  // border-top:2px solid $light_grey;
+  // margin:$gutter 00 0 ;
+  // padding:$gutter 00 0 ;
+  margin:0;
+  padding:0;
+}
+fieldset:first-child:before {
+  display:none;
+}
+
+fieldset:before {
+  content: "";
+  display:block;
+  margin:$gutter*2 0;
+  width:5%;
+  height:4px;
+  background:$mid_grey;
+}
+
+input, textarea {
+  font-size:$font_size;
+  border: 1px solid $mid_grey;
+  padding:10px;
+  border-radius:2px;
+}
+
+label {
+  padding:10px 0;
+}
+
+.form_row {
+  margin:$gutter/2 0;
+  label {
+    width:25%;
+    display:inline-block;
+  }
+  input {
+    width:74%;
+  }
+}
+.form_block {
+  margin:$gutter/2 0;
+  label {
+    display:block;
+  }
+  input, textarea {
+    display:block;
+    width:100%;
+  }
+  textarea {
+    height:5em;
+  }
+}

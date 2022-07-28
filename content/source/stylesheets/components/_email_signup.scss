@@ -1,0 +1,29 @@
+.email_signup {
+  background: $light_grey;
+  padding:$gutter;
+  h2 {
+    margin-top: 0;
+  }
+  .email, .name {
+    margin-bottom:$gutter/2;
+    label {
+      width:6em;
+      display:inline-block;
+    }
+    input {
+      width: auto;
+      display:inline-block;
+      width:15em;
+    }
+  }
+  .go {
+    button {
+      font-size:$large;
+      padding: $gutter/2 $gutter;
+      background: $dark_grey;
+      color:$white;
+      border:none;
+      margin-left:100px;
+    }
+  }
+}

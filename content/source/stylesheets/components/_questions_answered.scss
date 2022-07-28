@@ -1,0 +1,17 @@
+aside.questions_answered {
+  padding:$gutter;
+  margin: $gutter 0;
+  background:$light_grey;
+  border-top:3px solid black;
+  font-style:italic;
+  h2 {
+    font-size:$normal;
+    margin-top:0;
+  }
+  ul, li {
+    margin:0;padding:0
+  }
+  ul {
+    margin-left:$gutter;
+  }
+}

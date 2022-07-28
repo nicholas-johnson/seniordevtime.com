@@ -1,0 +1,43 @@
+{
+  "title": "Angular 2",
+  "img": "/images/sections/angular.svg",
+  "courses": {
+    "course": {
+      "title": "The Angular 2 Course",
+      "exercises": {
+        "intro": {
+          "title": "Intro",
+          "description": "In which we build a simple hello world."
+        },
+        "bound-variables": {
+          "title": "Data Binding",
+          "description": "Attributes of the component are available in the front end."
+        },
+        "nested-components": {
+          "title": "Nested Components",
+          "description": "Angular 2 deals with a tree of nested components."
+        },
+        "fat-arrows": {
+          "title": "ES6 fat Arrow functions =>",
+          "description": "New ES6 features make JavaScript even more fun."
+        },
+        "events": {
+          "title": "Angular 2 Events",
+          "description": "We can handle events right from the template like a boss."
+        },
+        "event-emitters": {
+          "title": "Emitting events from components",
+          "description": "Out components can emit events, just like any regular HTML element."
+        },
+        // "inputs": {
+        //   "title": "Angular 2 Inputs",
+        //   "description": "We can handle events right from the template like a boss."
+        // },
+        "di": {
+          "title": "Angular 2 Dependency Injection",
+          "description": "DI allows us to isolate our components. In Angular 2 it is no longer automatic."
+        }
+      }
+    }
+  }
+}

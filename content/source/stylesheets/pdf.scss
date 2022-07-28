@@ -1,0 +1,47 @@
+$print_font_size:12px;
+$scaling-factor:1.5;
+$print-border-color: #aaa;
+
+
+@media print {
+  header,footer, nav.top_nav, #disqus_thread, aside.sidenote {
+    display:none;
+  }
+
+  aside.box {
+    background:transparent;
+    border-top:1px solid $print-border-color;
+    border-bottom:1px solid $print-border-color;
+    * {
+      color:black;
+    }
+  }
+  // code {
+    // border-top:1px solid $print-border-color;
+    // border-bottom:1px solid $print-border-color;
+  // }
+  section {
+    page-break-after: always;
+  }
+
+  section.downloads {
+    display:none;
+  }
+
+  body {
+    font-size: $print_font_size;
+  }
+
+  h1 {
+    font-size: $print_font_size * $scaling-factor * $scaling-factor;
+  }
+
+  h2 {
+    font-size: $print_font_size * $scaling-factor;
+  }
+
+  h3 {
+    font-size: $print_font_size;
+  }
+
+}

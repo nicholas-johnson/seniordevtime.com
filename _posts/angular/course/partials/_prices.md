@@ -1,0 +1,13 @@
+
+## Pricing
+
+* In company 2 day Angular course: £2200.
+* In company 3 day Extended Angular course £3100.
+* In company 4 day full on Angular course £4000.
+* 2 day individual courses in Brighton: £800 per person.
+
+## How to book
+
+Courses run through Forward Advance Training Ltd.
+
+[Please get in touch](mailto:hello@nicholasjohnson.com) if you'd like to know more, or to book.

@@ -1,0 +1,6 @@
+1. Visit fittext.com and download the JavaScript file.
+2. Following the instructions, modify the font embedding exercise so one of your titles always spans the width of it's containing block, no matter how wide the page becomes.
+
+Further Exercise
+
+1. If that's easy, extend your responsive_images exercise so the header image uses a font which scales to fix the width of the page.

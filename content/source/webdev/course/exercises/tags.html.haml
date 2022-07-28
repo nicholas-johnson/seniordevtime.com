@@ -1,0 +1,50 @@
+---
+title: "Marking Up a Document Exercise"
+section: "webdev"
+exercise: "tags"
+layout: "exercise"
+---
+
+%article
+  %section
+    :markdown
+      # Marking up a document
+
+      HTML is the language that web pages are created in. Rival technologies such as Flash and Shockwave have tried to challenge HTML but none has matched it for simplicity, flexibility and ubiquitousness.
+
+      HTML is a markup language. An ordinary text document is "marked up" using special pairs of tags which tell a piece of software called a web browser how the text should be displayed.
+
+      ## Tags
+
+      For example, a paragraph can be created in html by placing a special p tag at the start of the paragraph, and a matching end p tag at the end of the paragraph. We sometimes talk about "wrapping" text in p tags to create a paragraph.
+
+      When text has been wrapped in paragraph tags, we describe that text as a paragraph element. We are then able to apply specific styling to that paragraph element using CSS which we will come to later.
+
+      ## Tags come in pairs
+
+      Tags generally come in pairs, a start tag and an end tag. A start tag looks like this: <p>. This tag means start a new paragraph. An end tag looks like this </p>. This tag means end your paragraph.
+
+    :ruby
+      code = <<-CODE
+      <p>This is now a paragraph</p>
+      CODE
+    =code(code, :html)
+
+    :markdown
+
+      Tags are placed before and after the text we want to wrap, so if you wanted to make a top level heading you might write <h1>Here is my heading</h1>
+
+  %section.exercise
+    :markdown
+      ## Exercise - create a page
+
+      1. Create a file and save is as index.html. Type "Welcome to the Wonderful World of HTML" into it.
+      2. Open it in a web browser like Chrome and see what you have.
+
+  %section.exercise
+    :markdown
+      ## Exercise - add some tags
+
+      1. Wrap the "Welcome" text in <h1> tags.
+      2. Add some paragraphs of text. Leave a double newline in between them.
+      3. Now wrap these paragraphs in <p> tags. See what you have?

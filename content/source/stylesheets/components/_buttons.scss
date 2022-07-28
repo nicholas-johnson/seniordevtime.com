@@ -1,0 +1,25 @@
+@import '../imports';
+
+a.button {
+  display:inline-block;
+  background:red;
+  color:white;
+  padding:$gutter/2 $gutter;
+  border-radius: 10px;
+  transition: 0.5s all;
+  &.action {
+    margin:$gutter auto;
+    font-size: $large;
+  }
+  &:hover:after {
+    display: none;
+  }
+  &:hover {
+    background:black;
+    box-shadow: 0px 0 0px 5px red, 0px 0 0px 10px black;
+  }
+}
+
+.action_button_row {
+  text-align:center;
+}

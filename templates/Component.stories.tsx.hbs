@@ -1,0 +1,20 @@
+import StoryWrapper from "components/StoryWrapper";
+
+import { {{pascalCase name}}, I{{pascalCase name}}Props } from './{{pascalCase name}}';
+
+const {{camelCase name}}Props: I{{pascalCase name}}Props = {};
+
+export const {{pascalCase name}}Story = (args: I{{pascalCase name}}Props) => {
+    return (
+        <StoryWrapper>
+            <{{pascalCase name}} {...args} />
+        </StoryWrapper>
+    );
+};
+
+{{pascalCase name}}Story.args = {{camelCase name}}Props;
+
+export default {
+    title: 'Components/{{pascalCase name}}',
+    component: {{pascalCase name}},
+};

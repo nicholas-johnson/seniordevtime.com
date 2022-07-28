@@ -1,0 +1,14 @@
+@import '../imports';
+
+figure {
+  display:block;
+  margin:$gutter 0;
+  padding:0;
+  img {
+    width:100%;
+  }
+  figcaption {
+    display:block;
+    font-weight:bold;
+  }
+}

@@ -1,0 +1,56 @@
+@import '../imports';
+
+footer {
+  clear:both;
+  margin:$gutter*2 0 0 0;
+  padding:0 0 $gutter 0;
+  background:$highlight_colour;
+  @include clearfix;
+
+  &, h2, a {
+    color: $white;
+    text-decoration:none;
+    font-weight:300;
+  }
+  a:hover {
+    text-decoration:underline;
+  }
+  nav {
+    float:left;
+    width: $page_width / 4;
+    font-size:$font-size *0.9;
+    padding:0 $gutter;
+    >ul, >li {
+      margin:0;
+      padding:0;
+      list-style:none;
+    }
+    >li {
+      margin:1em 0;
+    }
+  }
+  nav.stack_overflow {
+    li:before {
+      content: ">"
+    }
+  }
+}
+
+@media (max-width: $desktop+($gutter*2)) {
+  footer {
+    nav {
+      width: $desktop / 4;
+    }
+  }
+}
+
+@media (max-width: $mobile+($gutter*2)) {
+  footer {
+    padding-top:$gutter;
+    width: auto;
+    nav {
+      width: auto;
+      float:none;
+    }
+  }
+}

@@ -1,0 +1,19 @@
+aside.box {
+  border-radius:$round;
+  background: $highlight_colour;
+  padding:$gutter;
+  margin: $gutter auto;
+  * {
+    color: $white;
+    text-shadow:1px 1px darken($highlight_colour, 10%);
+  }
+  *:first-child {
+    margin-top:0;
+  }
+  *:last-child {
+    margin-bottom:0;
+  }
+  a {
+    text-decoration:underline;
+  }
+}

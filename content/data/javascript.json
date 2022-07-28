@@ -1,0 +1,129 @@
+{
+  "title": "JavaScript",
+  "img": "/images/sections/ruby.svg",
+  "courses": {
+    "intro-to-javascript": {
+      "title": "Learn to Program with JavaScript Course",
+      "exercises": {
+        "intro": {
+          "title": "Welcome to JavaScript",
+          "description": "Let's explore"
+        },
+        "strings": {
+          "title": "Strings",
+          "description": "Don't string me along"
+        },
+        "variables": {
+          "title": "Variables",
+          "description": "Buckets of Fun"
+        },
+        "maths": {
+          "title": "Maths",
+          "description": "Doing Sums"
+        },
+        "functions": {
+          "title": "Functions",
+          "description": "Doing things more than once"
+        },
+        "flow-control": {
+          "title": "Flow Control",
+          "description": "Do this, or else..."
+        },
+        "booleans": {
+          "title": "Booleans",
+          "description": "An exciting foray into Booleans. What Ho!"
+        },
+        "loops": {
+          "title": "Loops",
+          "description": "I am dizzy, my head is spinning"
+        },
+        "arrays": {
+          "title": "Arrays",
+          "description": "Racks of Variables"
+        },
+        "integration": {
+          "title": "Putting it all together",
+          "description": "Looping over arrays"
+        },
+        "json": {
+          "title": "JSON",
+          "description": "JavaScript Object Notation"
+        }
+      }
+    },
+    "adwords-script-course": {
+      "title": "Google Adwords Scripting with JavaScript",
+      "exercises": {
+        "intro": {
+          "title": "Welcome to Adwords Scripting",
+          "description": "Let's automate!"
+        },
+        "adwordsapp": {
+          "title": "The AdWordsApp object",
+          "description": "Get data!"
+        },
+        "iterators": {
+          "title": "Iterators",
+          "description": "Pull information and loop!"
+        }
+      }
+    },
+    "javascript-for-programmers": {
+      "title": "JavaScript for Smart People Course",
+      "exercises": {
+        "intro": {
+          "title": "Hello Javascript",
+          "description": "Variables local and global, Strings and Numbers. Variables are global by default in JavaScript, and there is a single global namespace. Here we look at the issues this can cause and how to avoid them."
+        },
+        "functions": {
+          "title": "Functions",
+          "description": "Functions are first class objects in JavaScript, here we look at what this means for you."
+        },
+        "closure": {
+          "title": "Closure and Variable Scope",
+          "description": "Local variables belong to a special hidden object called scope. This object can persist, even after their function has exited."
+        },
+        "arrays": {
+          "title": "Arrays and loops",
+          "description": "JavaScript has both classical loops and functional loops. Lets take a look."
+        },
+        "jquery": {
+          "title": "Manipulating the DOM with JQuery",
+          "description": "In which we investigate the power of JQuery to change your DOM."
+        },
+        "events": {
+          "title": "JQuery Events",
+          "description": "JavaScript is event driven, it reacts to user events, network events, page load events, etc. We assign callback functions to events. These are called when the event is fired."
+        },
+        "each-peach": {
+          "title": "JQuery Functional each",
+          "description": "Functional Looping with JQuery."
+        },
+        "json": {
+          "title": "JSON",
+          "description": "In JavaScript, all objects are arrays. JSON syntax allows us to create objects quickly and easily."
+        },
+        "object-orientation": {
+          "title": "Object Orientation",
+          "description": "JavaScript is class free so any function can act as a constructor."
+        },
+        "meaning-of-this": {
+          "title": "Meaning of This",
+          "description": "JavaScript has a special variable called this. This is set at runtime.."
+        },
+        "ajax": {
+          "title": "AJAX",
+          "description": "We can pull code directly from our server using AJAX."
+        },
+        "lodash-templates": {
+          "title": "Lodash Templates",
+          "description": "Templates help us keep out HTML where it belongs: in the HTML."
+        },
+        "promises": {
+          "title": "Promises",
+          "description": "Promises help us manage asynchronous events."
+        }
+      }
+    }
+  }
+}

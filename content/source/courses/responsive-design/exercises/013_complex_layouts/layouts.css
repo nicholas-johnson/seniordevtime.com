@@ -1,0 +1,51 @@
+body {
+  max-width:1000px;
+  margin:1em auto;
+}
+
+header,
+article {
+  display:block;
+  background:#bbb;
+}
+
+header {
+  height:200px;
+  margin:1em 1em;
+}
+
+div {
+  float:left;
+  width:12.5%;
+  height:100px;
+  margin-bottom:1em;
+}
+
+div article {
+  height:100px;
+  margin:0 1em 1em 1em;
+}
+
+article {
+  clear:both;
+  height:400px;
+  margin:0 1em 1em 1em;
+}
+
+@media screen and (max-width: 1000px) {
+  div {
+    width:25%;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  div {
+    width:50%;
+  }
+}
+
+@media screen and (max-width: 350px) {
+  div {
+    width:100%;
+  }
+}

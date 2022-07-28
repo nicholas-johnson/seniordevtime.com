@@ -1,0 +1,10 @@
+@import '../imports';
+
+section.exercise {
+  border:1px solid black;
+  border-radius:3px;
+  padding:$gutter;
+  >:first-child {
+    margin-top:0
+  }
+}

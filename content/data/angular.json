@@ -1,0 +1,132 @@
+{
+  "title": "AngularJS",
+  "img": "/images/sections/angular.svg",
+  "courses": {
+    "course": {
+      "title": "The AngularJS Course",
+      "exercises": {
+        "templates": {
+          "title": "Templates",
+          "description": "In which we get some Angular running in a browser."
+        },
+        "binding": {
+          "title": "Binding",
+          "description": "Where we discover the spooky magic that is Angular data binding (of course it's not magic really, as we shall very soon see)."
+        },
+        "more-binding": {
+          "title": "More on Binding",
+          "description": "In which we bind expressions to classes and attributes and add conditional logic to our templates.",
+          "code": "https://www.dropbox.com/sh/1g6dh1duu3y1sz7/AAD9SokCbCVNOu-iiem8aTRpa?dl=0"
+        },
+        "controllers": {
+          "title": "Controllers",
+          "description": "Controllers glue the scope to the template."
+        },
+        "scope": {
+          "title": "Scope and Scope Inheritance (View Model)",
+          "description": "$scope is an object in which you can store your models"
+        },
+        "watch": {
+          "title": "Watch and the digest cycle",
+          "description": "Here we delve into the workings of the digest cycle and discover the logic behind Angular data binding."
+        },
+        "di": {
+          "title": "Dependency Injection (DI)",
+          "description": "Dependency Injection allows us to require components simply be referring to them. Learn about DI and also split your code into sensible modules."
+        },
+        "karma": {
+          "title": "Unit Testing with Karma (Testacular)",
+          "description": "All good developers write unit tests. We will too."
+        },
+        "homework": {
+          "title": "Homework",
+          "description": "Fun and simple homework. It's like school"
+        },
+        "repeat-and-filter": {
+          "title": "Repeat and Filter",
+          "description": "The show-off feature of Angular. This stuff makes clients really happy."
+        },
+        "ajax": {
+          "title": "AJAX",
+          "description": "Drop JSON into your $scope and it will automatically bind it to the template."
+        },
+        "ng-include": {
+          "title": "Templates and the Template Cache",
+          "description": "Talking to the template cache directly can make your app feel more responsive. Learn how."
+        },
+        "animation": {
+          "title": "The Animation Framework",
+          "description": "Angular will inspect your "
+        },
+        "custom-filters": {
+          "title": "Writing Custom Filters",
+          "description": "A filter is a function for modifying and presenting data. We learn to write and use our own."
+        },
+        "services": {
+          "title": "Writing Services",
+          "description": "Services are singleton objects that act as repositories of useful functions. How to make them, and when to use them."
+        },
+        "promises": {
+          "title": "Promises",
+          "description": "Tidying up asynchronous code using promises."
+        },
+        "directives": {
+          "title": "Writing Directives",
+          "description": "Directives tell the Angular compiler how to transform the DOM. They are the guts of Angular. You will learn all about them."
+        },
+        "directive-compilation": {
+          "title": "Directive Compilation",
+          "description": "We look at how the Angular compiler traverses the DOM, oreder of compilation, and when to use the compile, link and controller functions."
+        },
+        // "parse": {
+        //   "title": "Parsing attributes against $scope",
+        //   "description": "How to make out directives receive an expression."
+        // },
+        // "testing-directives": {
+        //   "title": "Unit testing directives using Karma",
+        //   "description": "Unit testing is for directives too."
+        // },
+        "isolate-scope": {
+          "title": "Isolate Scopes",
+          "description": "One of the most misunderstood features of directives. We learn, in detail, how to control the scope hierarchy."
+        },
+        "homework-2": {
+          "title": "Homework 2",
+          "description": "Again, like school, but better paid."
+        },
+        "transclusion": {
+          "title": "Directive Transclusion",
+          "description": "Transclusion allows us to pass template content to a directive as an attribute. This is a lot more useful than it sounds. Here we see why."
+        },
+        "crud": {
+          "title": "Create, Read, Update, Delete",
+          "description": "We put it together and talk to a real RESTful API to build a little content driven app"
+        },
+        "webapi": {
+          "title": "Build a back end with WebAPI",
+          "description": "Build a simple API with WebAPI, then integrate from it."
+        },
+        "validation": {
+          "title": "Form Validation",
+          "description": "We validate our inputs the right way"
+        },
+        "protractor": {
+          "title": "Protractor",
+          "description": "End to end integration testing."
+        },
+        "resource": {
+          "title": "Resource",
+          "description": "Resource is an ORM for REST. Powerful and terse AJAX."
+        },
+        "routing": {
+          "title": "Routing",
+          "description": "Learn about routing, Pushstate, and how to make an Angular site SEO friendly without hashbangs"
+        },
+        "ui-router": {
+          "title": "UI Router",
+          "description": "The UI Router is an alternative state based router for Angular. Learn all about it."
+        }
+      }
+    }
+  }
+}

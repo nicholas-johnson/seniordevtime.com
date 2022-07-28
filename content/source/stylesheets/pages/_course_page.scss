@@ -1,0 +1,17 @@
+@import '../imports';
+
+.course_page {
+  h1 {
+    text-align:center;
+    font-size: $largest;
+  }
+  img.sectionLogo {
+    display:block;
+    width:30px;
+    margin:0 auto;
+  }
+  .subtitle {
+    font-size:$large;
+    text-align:center;
+  }
+}

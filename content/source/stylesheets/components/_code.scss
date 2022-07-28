@@ -1,0 +1,29 @@
+@import '../imports';
+
+code {
+  font-family: monospace;
+  background:$dark_grey;
+  color:$code_green;
+  padding:2px 4px;
+  border-radius:5px;
+  &.code_block {
+    display:block;
+    margin:$gutter 0;
+    padding:$gutter;
+    overflow:auto;
+    counter-reset: linecounter;
+
+    .line {
+      display:block;
+      white-space: pre;
+      counter-increment: linecounter;
+      &:before{
+        content: counter(linecounter);
+        width: 2em;
+        display: inline-block;
+        border-right: 1px solid $white;
+        margin-right:1em;
+      }
+    }
+  }
+}

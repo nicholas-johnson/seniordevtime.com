@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Image Resizer</title>
+  <link rel="stylesheet" type="text/css" href="/stylesheets/image_resizer/style.css" />
+  <script src="/javascripts/image_resizer/jquery.js"></script>
+  <script src="/javascripts/image_resizer/angular.js"></script>
+  <script src="/javascripts/image_resizer/resizer.js"></script>
+</head>
+<body ng-app="myApp">
+  <h1>Client side image resizatron</h1>
+  <div ng-controller="imageResizerController">
+    <p>First we use the File API to insert an image into a canvas.</p>
+    <canvas id="image-canvas" width="300" height="300"></canvas>
+    <form>
+      <label for="file">Choose a file</label>
+      <input id="file" type="file" ng-model="file" to-data-url="image.inputDataUrl" />
+      <input type="range" step="0.01" min="0" max="1" list="ticks" ng-model="image.zoom" ng-change="redraw()" />
+      <label>zoom: <output>{{image.zoom}}</output></label>
+      <input type="range" step="0.01" min="-1" max="1" list="ticks" ng-model="image.x" ng-change="redraw()" ng-model-options="{throttle:100}" />
+      <label>x: <output>{{image.x}}</output></label>
+      <input type="range" step="0.01" min="-1" max="1" list="ticks" ng-model="image.y" ng-change="redraw()" ng-model-options="{throttle:100}" orient="vertical" />
+      <label>y: <output>{{image.y}}</output></label>
+      <h2>Input Data URL </h2>
+      <p>We can get the raw image data from the file field as a data URL.</p>
+      <textarea>{{image.inputDataUrl}}</textarea>
+      <h2>Output Data URL</h2>
+      <p>We can pull the modified data URL from the canvas. This is raw image data. You can upload this to your server</p>
+      <textarea>{{image.outputDataUrl}}</textarea>
+      <h2>Output image (right click to save)</h2>
+      <p>Finally we can use the processed image data in an image tag. Full client side image processing and saving.</p>
+      <img ng-src="{{image.outputDataUrl}}" />
+      <datalist id="ticks">
+        <option>0</option>
+      </datalist>
+    </form>
+  </div>
+</body>
+</html>

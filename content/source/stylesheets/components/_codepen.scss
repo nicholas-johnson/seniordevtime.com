@@ -1,0 +1,18 @@
+.codepen {
+  min-height:268px;
+  margin: $gutter*2 0;
+  border:1px solid black;
+  border-radius: 5px 5px 0 0;
+  padding: $gutter;
+  &:after {
+    content: 'loading...';
+    margin: $gutter 0;
+    display: block;
+  }
+}
+
+.cp_embed_iframe {
+  border:1px solid black;
+  margin: $gutter 0;
+  border-radius: 5px 5px 0 0;
+}

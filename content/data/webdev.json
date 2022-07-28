@@ -1,0 +1,153 @@
+{
+  "title": "CSS and HTML",
+  "slug": "webdev",
+  "img": "/images/sections/html5.svg",
+  "courses": {
+    "course": {
+      "title": "The HTML/CSS Course",
+      "slug": "course",
+      "img": "/images/sections/node.svg",
+      "exercises": {
+        "tags": {
+          "title": "Welcome to HTML",
+          "description": "We use tags to cut up our HTML"
+        },
+        "more-tags": {
+          "title": "More Tags",
+          "description": "Here are some more tags you can use"
+        },
+        "attributes": {
+          "title": "Attributes",
+          "description": "Extend the behaviour of your tags with attributes"
+        },
+        "images": {
+          "title": "Images",
+          "description": "Add images to your page."
+        },
+        "lists": {
+          "title": "Lists",
+          "description": "Lists are used everywhere in HTML"
+        },
+        "style-attributes": {
+          "title": "Style",
+          "description": "We can add style to our page using simple attributes"
+        },
+        "divs-and-spans": {
+          "title": "Divs and Spans",
+          "description": "For selecting arbitrary bits of the page"
+        },
+        "hex": {
+          "title": "Hexadecimal Colours",
+          "description": "Make your page look nice"
+        },
+        "entity-references": {
+          "title": "Entity references",
+          "description": "Special Characters look nice when splashed around"
+        },
+        "selectors": {
+          "title": "Selectors",
+          "description": "Put common styles in a style tag"
+        },
+        "stylesheets": {
+          "title": "Extracting a stylesheet",
+          "description": "Our styles can live in a separate sheet"
+        },
+        "css-classes": {
+          "title": "Classes",
+          "description": "Selecting elements by class"
+        },
+        "nested-selectors": {
+          "title": "Nested Selectors",
+          "description": "We can chain multiple selectors together to get better control"
+        },
+        // "layout-strategies": {
+        //   "title": "Layout Strategies",
+        //   "description": "The default layout if full width, which is actually quite useful."
+        // },
+        "full-width": {
+          "title": "Full Width Layouts",
+          "description": "Default and useful"
+        },
+        "abs-layout": {
+          "title": "Absolutely positioned layouts",
+          "description": "Place items where you want them"
+        },
+        "float-layout": {
+          "title": "Float layouts",
+          "description": "A useful layout which respects height"
+        },
+        "positioning-with-margins": {
+          "title": "Positioning with Margins",
+          "description": "Handy simple layouts"
+        }
+        // "hybrid-layouts": {
+        //   "title": "Hybrid layouts",
+        //   "description": "A hybrid layout blends both layout strategies"
+        // }
+      }
+    },
+    "responsive-design": {
+      "title": "Responsive Design Course",
+      "slug": "responsive-design",
+      "img": "/images/sections/node.svg",
+
+      "exercises": {
+        "media-queries": {
+          "title": "Media Queries",
+          "description": "The magic sauce that makes it all work. Media queries let us serve different CSS depending on the width or height of the browser."
+        },
+        "responsive-menu": {
+          "title": "Responsive Menu",
+          "description": "Buttons must be made larger."
+        },
+        "responsive-images": {
+          "title": "Responsive Images",
+          "description": "Images fill the available space."
+        },
+        "vectors": {
+          "title": "Vectors",
+          "description": "Vector graphics provide infinite zoomability."
+        }
+      }
+    },
+    "css3": {
+      "title": "The CSS3 Course",
+      "slug": "css3",
+      "img": "/images/sections/node.svg",
+      "exercises": {
+        "opacity": {
+          "title": "Opacity",
+          "description": "Like Glass."
+        },
+        "border-radius": {
+          "title": "Border Radius",
+          "description": "Dangerous Curves."
+        },
+        "box-shadow": {
+          "title": "Box Shadow",
+          "description": "Not just for drop shadow"
+        },
+        "multiple-backgrounds": {
+          "title": "Multiple Backgrounds",
+          "description": "All lying on top of one another."
+        },
+        "transformations": {
+          "title": "Transformations",
+          "description": "Bend it like Beckham."
+        },
+        "transitions": {
+          "title": "Transitions",
+          "description": "Move smoothly from state to state."
+        },
+        "pseudoelements": {
+          "title": "Pseudoelements",
+          "description": "Add elements right there in your CSS."
+        },
+        "animation": {
+          "title": "Animation",
+          "description": "Make it wiggle."
+        }
+      }
+    }
+  }
+}

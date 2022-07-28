@@ -1,0 +1,87 @@
+---
+title: "Angular is bringing back the DOM"
+tags: angular, angular2, javascript, es6
+layout: 'blog'
+description: ""
+published: false
+course_sidebar: :angular2
+---
+
+
+%article
+  %section
+    :markdown
+
+
+      For a long time we thought of a web page as a triune structure, composed of HTML for content, CSS for styling and JavaScript for behaviour.
+
+      If we wanted to modify our page, we would write JavaScript to modify attributes on the HTML. If we wanted style, we created style attributes. If we wanted to set the value of an input, we would write jQuery to set it. `$('input').value('Toast')`. If we wanted text content, we would append it.
+
+      All that DOM stuff was abstracted away.
+
+      ## The DOM lurks beneath, like an awesome Kraken, waiting to surface and eat us all
+
+      The DOM is the browser's representation of the web page. HTML initialises it, but once created it has a life of its own.
+
+      It is a tree of objects (Elements). Each Element has attributes, which are taken directly from the HTML, and properties, which are not.
+
+      Attributes look like this:
+
+    :ruby
+      code = <<-CODE
+      <img src="kitty_cheese.gif" />
+      CODE
+    =code(code)
+
+    :markdown
+
+      The attribute here is `src`. Attributes are visible in the HTML, and also stored in the DOM as Element attributes. If I write a src attribute into my HTML, the corresponding DOM node gets a src attribute to match it.
+
+
+      ## DOM properties != DOM attributes
+
+      If I set a property
+
+      DOM properties are not visible in the HTML. They may be kept in sync with the HTML attributes, or they may not, depending on the exact behaviour of the attribute.
+
+      There are many more DOM properties than there are attributes. If we can set properties, we can do many more things than we can do if we just manipulate HTML.
+
+      Some DOM properties map to html attributes directly, such as `value`. If we initialise an input with a value attribute, the DOM gets a value property with that value.
+
+      Some map incompletely, for example `disabled`. This is a boolean in the DOM, but adding a disabled attribute to the HTML with any value will set the disabled DOM property to true.
+
+      The following input is still disabled:
+
+    :ruby
+      code = <<-CODE
+      <input disabled='false' />
+      CODE
+    =code(code)
+
+    :markdown
+
+      Some have no HTML mapping at all. For example innerText. There is no innerText HTML attribute. It has no effect. Setting innerText on the DOM however changes the text content of the node.
+
+      ## Angular makes the DOM directly accessible from the HTML
+
+      Angular takes DOM properties and makes them available directly in the HTML. This is a major (and rather wonderful) innovation.
+
+      We can of course still set attributes, like so:
+
+    :ruby
+      code = <<-CODE
+      <img src="toaster_party.gif" />
+      CODE
+    =code(code)
+
+    :markdown
+
+      But now we can also set DOM properties at well:
+
+    :ruby
+      code = <<-CODE
+      <img [hidden]="true" src="toaster_party.gif" />
+      CODE
+    =code(code)
+
+    :markdown

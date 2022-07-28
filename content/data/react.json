@@ -1,0 +1,42 @@
+{
+  "title": "ReactJS",
+  "slug": "react",
+  "img": "/images/sections/react.svg",
+  "courses": {
+    "course": {
+      "title": "The React Course",
+      "slug": "course",
+      "img": "/images/sections/react.svg",
+      "exercises": {
+        "rendering": {
+          "title": "Render",
+          "description": "In which we learn about React.render and make a simple hello world."
+        },
+        "children": {
+          "title": "Child Nodes",
+          "description": "More with Render - rendering child nodes."
+        },
+        "components": {
+          "title": "Components",
+          "description": "Creating Components."
+        },
+        "props": {
+          "title": "Props",
+          "description": "Passing data down to render."
+        },
+        "state": {
+          "title": "State",
+          "description": "Updating UI state."
+        },
+        "transpiler": {
+          "title": "Transpiling JSX",
+          "description": "We introduce JSX, to make our templates more legible."
+        },
+        "flux": {
+          "title": "Flux",
+          "description": "Introducing the Flux architecture (observables)."
+        }
+      }
+    }
+  }
+}

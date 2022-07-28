@@ -1,0 +1,76 @@
+%h1 Include vs. Extend
+  
+  %p Include and Extend allow us to take methods from a module and add them to an object. They work slightly differently from each other though. Let's take a look...
+  
+  %h2 Extend adds methods directly to an object
+  
+  %p Extend adds methods to an object. It extends that object by adding new features to it.
+  
+  
+  :ruby
+    code = <<-CODE
+      class Hamster
+      end
+  
+      module PetSkills
+        def snuggle;end
+      end
+  
+      Hamster.extend PetSkills
+    CODE
+  =code(code)
+  
+  %p If you extend a class, you create a class method.
+  
+  :ruby
+    code = <<-CODE
+      h = Hamster.new
+      Hamster.methods.include? :snuggle
+      # => true
+      h.methods.include? :snuggle
+      # => false
+    CODE
+  =code(code)
+  
+  %p If you extend an instance of a class, you create an instance method, but only on that instance. You can extend any object like this.
+  
+  :ruby
+    code = <<-CODE
+      h.extend PetSkills
+      h.methods.include? :snuggle
+      # => true
+  
+      i = Hamster.new;
+      i.methods.include? :snuggle
+      # => false
+    CODE
+  =code(code)
+  
+  %p You can call extend on any object to add methods to that object alone.
+  
+  %h2 Include adds instance methods to a class
+  
+  %p Include takes a more traditional approach. If you include a module in a class, the methods in the module will be added as instance methods, and will be available to all instances of that class.
+  
+  :ruby
+    code = <<-CODE
+      class Gerbil
+        include PetSkills
+      end
+  
+      g = Gerbil.new
+      Gerbil.methods.include? :snuggle
+      # => false
+      g.methods.include? :snuggle
+      # => true
+    CODE
+  =code(code)
+  
+  %h2 Upshot
+  
+  %p Extend will add methods to an object, and only to that object. If we extend a class we get class methods.
+  
+  %p Include will include methods from a module into a class, those methods become instance methods for objects of that type.
+  
+  
+  

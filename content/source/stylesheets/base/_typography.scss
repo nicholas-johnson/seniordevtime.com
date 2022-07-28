@@ -1,0 +1,40 @@
+@import '../imports';
+
+h1, h2, h3 {
+  font-weight:300;
+  a {
+    text-decoration:none;
+  }
+}
+
+h1 {
+  font-size: $font-size * $scaling-factor * $scaling-factor;
+  &, a {
+    color: darken($dark_grey, 20%);
+  }
+  letter-spacing:2px;
+}
+
+h2 {
+  font-size: $font-size * $scaling-factor;
+  letter-spacing:1px;
+  &, a {
+    color: darken($dark_grey, 10%);
+  }
+}
+
+h3 {
+  font-size: $font-size;
+  letter-spacing:1px;
+  font-weight:800;
+  &, a {
+    color: $dark_grey
+  }
+}
+
+@media (max-width: $mobile) {
+  h1 {
+    font-size: $font-size * $scaling-factor;
+
+  }
+}

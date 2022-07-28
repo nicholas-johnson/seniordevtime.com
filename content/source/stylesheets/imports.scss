@@ -1,0 +1,28 @@
+$font-size:16px;
+$scaling-factor:1.66;
+
+$small: $font-size / $scaling-factor;
+$normal: $font-size;
+$large: $font-size * $scaling-factor;
+$larger: $font-size * $scaling-factor * $scaling-factor;
+$largest: $font-size * $scaling-factor * $scaling-factor * $scaling-factor;
+
+$white:#fff;
+$light_grey:#eee;
+$mid_grey:#888;
+$dark_grey:#222;
+$black: #040404;
+
+$gutter:20px;
+$green: #9b9264;
+$code_green: #a6e22e;
+$round: 3px;
+$highlight_colour: $dark_grey;
+$aside_width: 250px;
+
+$max_text_width: 800px;
+$max_menu_width: 200px;
+$mobile: 800px;
+$desktop: 1000px;
+$page_width: $desktop;
+$article_width: 600px;

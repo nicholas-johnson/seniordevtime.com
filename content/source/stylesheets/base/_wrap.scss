@@ -1,0 +1,21 @@
+@import '../imports';
+
+.wrap {
+  width: $desktop;
+  margin:0 auto;
+  @include clearfix;
+
+  @media (max-width: $desktop) {
+    & {
+      margin: 0 $gutter;
+      width:auto;
+    }
+  }
+
+  @media (max-width: $mobile) {
+    & {
+      margin: 0 $gutter / 2;
+      width:auto;
+    }
+  }
+}

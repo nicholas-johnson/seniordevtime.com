@@ -1,0 +1,15 @@
+{
+  "title": "ES6",
+  "img": "/images/sections/es6.svg",
+  "courses": {
+    "course": {
+      "title": "The ES6 Course",
+      "exercises": {
+        "fat-arrows": {
+          "title": "Data Binding",
+          "description": "A new way of making functions."
+        }
+      }
+    }
+  }
+}

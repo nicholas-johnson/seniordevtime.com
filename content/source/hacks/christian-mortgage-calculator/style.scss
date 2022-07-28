@@ -1,0 +1,68 @@
+$font-size:15px;
+$font-scale: 2;
+$color: #333;
+
+body {
+  font-size:$font-size;
+  font-family:helvetica,arial,sans-serif;
+  line-height:1.5em;
+  letter-spacing:1px;
+  color: $color;
+}
+h1 {
+  font-size:$font-size * $font-scale * $font-scale;
+  color: $color;
+  letter-spacing:0.5px;
+  line-height:1.1em;
+}
+
+article {
+  width:90%;
+  max-width:900px;
+  margin:0 auto;
+}
+form {
+  fieldset {
+    border:none;
+    margin:1em 0;
+    padding:0;
+  }
+
+  label {
+    font-size:$font-size * $font-scale;
+    display:inline-block;
+    width:33%;
+    text-align:right;
+  }
+
+  span.unit {
+    font-size:$font-size * $font-scale;
+    display:inline-block;
+  }
+
+  input, select {
+    font-size:$font-size * $font-scale;
+    display:inline-block;
+    width:33%;
+  }
+
+  .note, .suggestion {
+    font-size:$font-size;
+    color: lighten($color, 50%);
+    margin-left:33%;
+    padding-left:10px;
+  }
+  a {
+    text-decoration: underline;
+    cursor: pointer;
+  }
+}
+
+table {
+  td {
+    border:1px solid #888;
+  }
+  th {
+    border:1px solid #888;
+  }
+}
